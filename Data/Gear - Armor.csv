@@ -1,0 +1,37 @@
+armor_id,armor,cost,bonus,maxdex,acp,spellfailure,speed30,speed20,weight,source,proficiency
+armored-kilt,Armored Kilt,20 gp,1,6,0,0.00,30,20,10,AA,Light Armor
+padded,Padded,5 gp,1,8,0,0.05,30,20,10,CRB,Light Armor
+quilted-cloth,Quilted Cloth,100 gp,1,8,0,0.10,30,20,15,APG,Light Armor
+leather,Leather,10 gp,2,6,0,0.10,30,20,15,CRB,Light Armor
+rosewood-armor,Rosewood armor,50 gp,2,6,0,0.10,30,20,15,AA,Light Armor
+hide-shirt,Hide shirt,20 gp,3,4,-1,0.15,30,20,18,VBoL,Light Armor
+leaf-armor,Leaf armor,500 gp,3,5,0,0.15,30,20,20,ISWG,Light Armor
+parade-armor,Parade armor,25 gp,3,5,-1,0.15,30,20,20,AA,Light Armor
+studded-leather,Studded leather,25 gp,3,5,-1,0.15,30,20,20,CRB,Light Armor
+wooden,Wooden,20 gp,3,3,-1,0.15,30,20,25,APG,Light Armor
+chain-shirt,Chain shirt,100 gp,4,4,-2,0.20,30,20,25,CRB,Light Armor
+armored-coat,Armored Coat,50 gp,4,3,-2,0.20,20,15,20,APG,Medium Armor
+hide,Hide,15 gp,4,4,-3,0.20,20,15,25,CRB,Medium Armor
+scale-mail,Scale mail,50 gp,5,3,-4,0.25,20,15,30,CRB,Medium Armor
+chainmail,Chainmail,150 gp,6,2,-5,0.30,20,15,40,CRB,Medium Armor
+breastplate,Breastplate,200 gp,6,3,-4,0.25,20,15,30,CRB,Medium Armor
+breastplate-agile,Breastplate (agile),400 gp,6,3,-4,0.25,20,15,25,APG,Medium Armor
+splint-mail,Splint mail,200 gp,7,0,-7,0.40,20,15,45,CRB,Heavy Armor
+banded-mail,Banded mail,250 gp,7,1,-6,0.35,20,15,35,CRB,Heavy Armor
+field-plate,Field Plate,"1,200 gp",7,1,-5,0.35,20,15,50,ISWG,Heavy Armor
+half-plate,Half-plate,600 gp,8,0,-7,0.40,20,15,50,CRB,Heavy Armor
+half-plate-agile,Half-plate (agile),850 gp,8,0,-7,0.40,20,15,55,APG,Heavy Armor
+full-plate,Full plate,"1,500 gp",9,1,-6,0.35,20,15,50,CRB,Heavy Armor
+hellknight-plate,Hellknight plate,"2,000 gp",9,1,-5,0.35,20,15,50,ISWG,Heavy Armor
+stoneplate,Stoneplate,"1,800 gp",9,1,-6,0.35,15,10,75,ISWG,Heavy Armor
+buckler,Buckler,5 gp,1,,-1,0.05,,,5,CRB,Shield
+klar,Klar,12 gp,1,,-1,0.05,,,6,ISWG,Shield
+madu-leather,"Madu, leather",30 gp,1,,-2,0.05,,,5,AA,Shield
+madu-steel,"Madu, steel",40 gp,1,,-2,0.05,,,6,AA,Shield
+shield-light-wooden,"Shield, light wooden",3 gp,1,,-1,0.05,,,5,CRB,Shield
+shield-light-wooden-quickdraw,"Shield, light wooden (quickdraw)",53 gp,1,,-2,0.05,,,6,APG,Shield
+shield-light-steel,"Shield, light steel",9 gp,1,,-1,0.05,,,6,CRB,Shield
+shield-light-steel-quickdraw,"Shield, light steel (quickdraw)",59 gp,1,,-2,0.05,,,7,APG,Shield
+shield-heavy-wooden,"Shield, heavy wooden",7 gp,2,,-2,0.15,,,10,CRB,Shield
+shield-heavy-steel,"Shield, heavy steel",20 gp,2,,-2,0.15,,,15,CRB,Shield
+shield-tower,"Shield, tower",30 gp,4,2,-10,0.50,,,45,CRB,Shield

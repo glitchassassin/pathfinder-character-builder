@@ -1,0 +1,241 @@
+<div class="sheet page1">
+    <div class="section logo"></div>
+    <div class="section class-race editable" ng-click="showClassraceEditor($event)">
+        <span class="name value">{{character.classrace.name}}</span>
+        <span class="alignment value">{{character.classrace.alignment}}</span>
+        <span class="player value">{{character.classrace.player}}</span>
+        <span class="classlevel value">
+            <span ng-repeat="(class, levels) in character.classrace.class_levels.class_levels_string" class="pair">{{class}} ({{levels}})</span>
+        </span>
+        <span class="deity value">{{character.classrace.deity}}</span>
+        <span class="homeland value">{{character.classrace.homeland}}</span>
+        <span class="race value">{{character.classrace.race}}</span>
+        <span class="size value">{{character.classrace.size}}</span>
+        <span class="gender value">{{character.classrace.gender}}</span>
+        <span class="age value">{{character.classrace.age}}</span>
+        <span class="height value">{{character.classrace.height}}</span>
+        <span class="weight value">{{character.classrace.weight}}</span>
+        <span class="hair value">{{character.classrace.hair}}</span>
+        <span class="eyes value">{{character.classrace.eyes}}</span>
+    </div>
+    <div class="section stats color-stat editable" ng-click="showStatEditor($event)">
+        <div ng-repeat="(stat, data) in character.stats" class="stat {{stat}}">
+            <span class="score field">{{data.score.toString()}}</span>
+            <span class="mod field">{{data.mod | xsign}}</span>
+            <span class="score-temp field">{{data.score_temp.toString()}}</span>
+            <span class="mod-temp field">{{data.score_temp.toString() == "" ? "" : (data.mod_temp | xsign)}}</span>
+        </div>
+    </div>
+    <div class="section hitpoints color-def">
+        <span class="total-hp field">{{character.hitpoints.total_hp}}</span>
+        <span class="dr field">{{character.hitpoints.dr}}</span>
+        <span class="current-hp field">{{character.hitpoints.current_hp}}</span>
+        <span class="nonlethal-hp field">{{character.hitpoints.nonlethal_hp}}</span>
+    </div>
+    <div class="section speeds">
+        <div class="line1">
+            <span class="base speed field">
+                <span class="base speed ft">{{character.speeds.base.ft | ignoreZero}}</span>
+                <span class="base speed sq">{{character.speeds.base.sq | ignoreZero}}</span>
+            </span>
+            <span class="armor speed field">
+                <span class="armor speed ft">{{character.speeds.armor.ft | ignoreZero}}</span>
+                <span class="armor speed sq">{{character.speeds.armor.sq | ignoreZero}}</span>
+            </span>
+        </div>
+        <div class="line2">
+            <span class="fly speed field">
+                <span class="fly speed ft">{{character.speeds.fly.ft | ignoreZero}}</span>
+                <span class="fly speed sq">{{character.speeds.fly.sq | ignoreZero}}</span>
+            </span>
+            <span class="swim speed field">{{character.speeds.swim.ft | ignoreZero}}</span>
+            <span class="climb speed field">{{character.speeds.climb.ft | ignoreZero}}</span>
+            <span class="burrow speed field">{{character.speeds.burrow.ft | ignoreZero}}</span>
+        </div>
+        <span class="temp field">{{character.speeds.temp}}</span>
+    </div>
+    <div class="section skills color-atk">
+        <div ng-repeat="(skill, data) in character.skills.list" class="skill {{skill}}">
+            <span class="class-skill">{{data.class_skill ? "x" : ""}}</span>
+            <span class="subskill field">{{data.subskill}}</span>
+            <span class="total field">{{(!data.trained_only || data.ranks > 0) ? "" : "-"}}{{(!data.trained_only || data.ranks > 0) ? data.total : "" | xsign | ignoreZero}}</span>
+            <span class="ability field color-stat">{{data.ability.ability_mod | xsign | ignoreZero}}</span>
+            <span class="ranks field">{{data.ranks | ignoreZero}}</span>
+            <span class="misc field">{{data.misc | xsign | ignoreZero}}</span>
+        </div>
+        <div class="modifiers">
+            {{character.skills.modifiers}}
+        </div>
+    </div>
+    <div class="section initiative color-atk">
+        <span class="total field">{{character.initiative.total | xsign}}</span>
+        <span class="dex field color-stat">{{character.initiative.ability.ability_mod | xsign}}</span>
+        <span class="misc field">{{character.initiative.misc | xsign | ignoreZero}}</span>
+    </div>
+    <div class="section armorclass color-def">
+        <span class="total field">{{character.armorclass.total}}</span>
+        <span class="armor field">{{character.armorclass.bonuses.armor | xsign | ignoreZero}}</span>
+        <span class="shield field">{{character.armorclass.bonuses.shield | xsign | ignoreZero}}</span>
+        <span class="dex field color-stat">{{character.armorclass.ability_mod | xsign | ignoreZero}}</span>
+        <span class="size field color-stat">{{character.armorclass.bonuses.size | xsign | ignoreZero}}</span>
+        <span class="natarmor field">{{character.armorclass.bonuses.natarmor | xsign | ignoreZero}}</span>
+        <span class="deflect field">{{character.armorclass.bonuses.deflection | xsign | ignoreZero}}</span>
+        <span class="misc field">{{character.armorclass.misc | xsign | ignoreZero}}</span>
+        <span class="touch field">{{character.armorclass.touch}}</span>
+        <span class="flat field">{{character.armorclass.flat}}</span>
+        <span class="other field">{{character.armorclass.other}}</span>
+    </div>
+    <div class="section savingthrows color-def">
+        <div ng-repeat="(save, data) in character.savingthrows.list" class="save {{save}}">
+            <span class="total field">{{data.total | xsign}}</span>
+            <span class="base field">{{data.base | xsign}}</span>
+            <span class="ability field color-stat">{{data.ability.ability_mod | xsign | ignoreZero}}</span>
+            <span class="magic field color-magic">{{data.magic | xsign | ignoreZero}}</span>
+            <span class="misc field">{{data.misc | xsign | ignoreZero}}</span>
+            <span class="temp field">{{data.temp | xsign | ignoreZero}}</span>
+        </div>
+        <div class="mods field"><span ng-repeat="mod in character.savingthrows.mod" class="mod">{{mod}}</span></div>
+    </div>
+    <div class="section baseattack color-atk">
+        <span class="total field">{{character.baseattack.attacks}}</span>
+    </div>
+    <div class="section spellresistance color-magic">
+        <span class="total field">{{character.spellresistance.total}}</span>
+    </div>
+    <div class="section cmb color-atk">
+        <span class="total field">{{character.cmb.total | xsign}}</span>
+        <span class="bab field">{{character.cmb.bab.base | xsign}}</span>
+        <span class="str field color-stat">{{character.cmb.ability.ability_mod | xsign}}</span>
+        <span class="size field">{{character.cmb.size_mod | xsign | ignoreZero}}</span>
+        <span class="other field">{{character.cmb.other}}</span>
+    </div>
+    <div class="section cmd color-def">
+        <span class="total field">{{character.cmd.total}}</span>
+        <span class="bab field color-atk">{{character.cmd.bab.base | xsign}}</span>
+        <span class="str field color-stat">{{character.cmd.ability1.ability_mod | xsign}}</span>
+        <span class="dex field color-stat">{{character.cmd.ability2.ability_mod | xsign}}</span>
+        <span class="size field">{{character.cmd.size_mod | xsign | ignoreZero}}</span>
+    </div>
+    <div class="section attacks color-atk">
+        <div ng-repeat="attack in character.attacks.melee.concat(character.attacks.ranged)" class="attack">
+            <span class="weapon field">
+                <span class="descriptor" ng-if="attack.weapon.masterwork && (attack.weapon.atk_bonuses.enhancement == 0)">(Mwk)</span>
+                {{attack.weapon.atk_bonuses.enhancement | xsign | ignoreZero}}
+                {{attack.weapon.prefix}}
+                {{attack.weapon.name}}
+            </span>
+            <span class="type field">{{attack.weapon.type}}</span>
+            <span class="range field">{{attack.weapon.range}}</span>
+            <span class="ammunition field">{{attack.weapon.ammunition}}</span>
+            <span class="bonus field">{{attack.fullatk}} <span class="descriptor">{{attack.touch ? "(touch)" : ""}}</span></span>
+            <span class="critical field">{{attack.weapon.critical}}</span>
+            <span class="damage field">{{attack.weapon.base_dmg}}{{attack.dmgbonus | xsign | ignoreZero}}</span>
+        </div>
+    </div>
+    <div class="section languages">
+        <span ng-repeat="language in character.languages" class="language">{{language}}</span>
+    </div>
+</div>
+<div class="sheet page2">
+    <div class="section acitems color-def">
+        <div ng-repeat="acitem in character.acitems.list" class="acitem">
+            <span class="item field">
+                <span class="descriptor" ng-if="acitem.masterwork && ((acitem.ac_bonuses.enhancement == 0) || (acitem.ac_bonuses.enhancement == null))">(Mwk)</span>
+                {{acitem.ac_bonuses.enhancement | xsign | ignoreZero}}
+                {{acitem.prefix}}
+                {{acitem.name}}
+            </span>
+            <span class="bonus field">{{acitem.ac_bonuses | xsign}}</span>
+            <span class="type field">{{acitem.proficiency}}</span>
+            <span class="check field color-atk">{{acitem.acp}}</span>
+            <span class="spellfailure field color-magic">{{acitem.spellfailure | percentage}}</span>
+            <span class="weight field">{{acitem.weight}} lbs.</span>
+            <span class="properties field">{{acitem.properties}}</span>
+        </div>
+        <div class="acitem totals">
+            <span class="bonus field">{{character.acitems.totals.bonus | xsign}}</span>
+            <span class="type field">{{character.acitems.totals.type}}</span>
+            <span class="check field color-atk">{{character.acitems.totals.check}}</span>
+            <span class="spellfailure field color-magic">{{character.acitems.totals.spellfailure | percentage}}</span>
+            <span class="weight field">{{character.acitems.totals.weight}} lbs.</span>
+            <span class="properties field">{{character.acitems.totals.properties}}</span>
+        </div>
+    </div>
+    <div class="section gear">
+        <div ng-repeat="item in character.gear.items" class="item">
+            <span class="name field">{{item.name}}</span>
+            <span class="type field">{{item.type}}</span>
+            <span class="location field">{{item.location}}</span>
+            <span class="description field">{{item.description}}</span>
+            <span class="weight field">{{item.weight}}</span>
+            <span class="value field">{{item.value}}</span>
+        </div>
+        <div class="encumbrance">
+            <span class="weight field">{{character.gear.encumbrance.weight}}</span>
+            <span class="light load field">{{character.gear.encumbrance.light_load}}</span>
+            <span class="medium load field">{{character.gear.encumbrance.medium_load}}</span>
+            <span class="heavy load field">{{character.gear.encumbrance.heavy_load}}</span>
+            <span class="light lift field">{{character.gear.encumbrance.light_lift}}</span>
+            <span class="medium lift field">{{character.gear.encumbrance.medium_lift}}</span>
+            <span class="heavy lift field">{{character.gear.encumbrance.heavy_lift}}</span>
+        </div>
+        <div class="money color-money">
+            <span ng-repeat="(denomination, count) in character.gear.money" class="coins {{denom | htmlsafe}}">{{count}}</span>
+        </div>
+    </div>
+    <div class="section feats">
+        <div ng-repeat="featslot in character.feats.list" class="feat" ng-click="touchHover(featslot.slot.dataName, $event)" ng-mouseenter="mouseHover(featslot.slot.dataName, $event)" ng-mouseleave="mouseOut($event)">
+            <span class="type field">{{featslot.slot.type}}</span>
+            <span class="name field">{{featslot.slot == null ? "- Select feat -" : featslot.slot.name}}</span>
+            <div class="popup" ng-show="hovering[featslot.slot.dataName]" ng-if="featslot.slot != null">
+                <span class="name value">{{featslot.slot.name}}</span>
+                <span class="type value"><span class="type title">Type</span>{{featslot.slot.type}}</span>
+                <span class="prereqs value">
+                    <span class="prereqs title">Prereqs</span>
+                    {{featslot.slot.display_prereqs.join(", ") || "- None -"}}
+                </span>
+                <span class="description value full-width"><span class="description title">Description</span>{{featslot.slot.description}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="section abilities">
+        <div ng-repeat="ability in character.abilities.list" ng-if="ability.type != 'hidden'" class="ability" ng-click="touchHover(ability.dataName, $event)" ng-mouseenter="mouseHover(ability.dataName, $event)" ng-mouseleave="mouseOut($event)">
+            <span class="type field">{{ability.type}}</span>
+            <span class="name field">{{ability.name}}</span>
+            <span class="uses field">{{ability.uses}}</span>
+            <div class="popup" ng-show="hovering[ability.dataName]">
+                <span class="name value">{{ability.name}}</span>
+                <span class="type value"><span class="type title">Type</span>{{ability.type}}</span>
+                <span class="uses value" ng-if="ability.uses"><span class="uses title">Uses</span>{{ability.uses}}</span>
+                <span class="description value full-width"><span class="description title">Description</span>{{ability.description}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="section xp">
+        <span class="total field">{{character.xp.total}}</span>
+        <span class="nextlevel field">{{character.xp.nextlevel}}</span>
+    </div>
+    <div class="section spells color-magic">
+        <div class="spellstats">
+            <div ng-repeat="(level, stats) in character.spells.spellstats" class="level {{level | htmlsafe}}">
+                <span class="known field">{{stats.known}}</span>
+                <span class="savedc field">{{stats.savedc}}</span>
+                <span class="perday field">{{stats.perday}}</span>
+                <span class="bonus field">{{stats.bonus}}</span>
+            </div>
+            <div class="modifiers">
+                {{character.spells.modifiers}}
+            </div>
+            <div class="schools">
+                <span ng-repeat="school in character.spells.schools" class="school">{{school}}</span>
+            </div>
+        </div>
+        <div class="levels">
+            <div ng-repeat="(level, spells) in character.spells.prepared" class="level {{level | htmlsafe}}">
+                <div ng-repeat="spell in spells" class="spell">
+                    <span class="name field">{{spell.name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

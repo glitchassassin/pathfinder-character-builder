@@ -1,0 +1,133 @@
+<html ng-app="csheetApp" ng-controller="csheetControl">
+    <head>
+        <title ng-bind-template="{{title}}">Loading Character Sheet</title>
+        <link href='https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC' rel='stylesheet' type='text/css'>
+	    <link rel="shortcut icon" href="favicon.ico">
+        <style>
+            /* Loading styles (while the rest of the page loads) */
+            html, body {
+                /* Patch for a bug in Angular Material (Github issue #681, NOT fixed) */
+                height: auto !important;
+            }
+            body {
+                /* Stop collapsing margins: http://www.sitepoint.com/web-foundations/collapsing-margins/ */
+                padding: 1px 0px !important;
+            }
+            .csheet {
+                background-color: #ccc;
+                font-family: 'IM Fell French Canon SC', 'Times New Roman';
+                font-weight: bold;
+            }
+            .loading {
+                position: absolute;
+                left: 25%;
+                right: 25%;
+                top: 25%;
+                bottom: 25%;
+                border: 1px #888 solid;
+                background-color: #bbb;
+                font-family: 'IM Fell French Canon SC', 'Times New Roman';
+                font-weight: bold;
+            }
+            .message {
+                position: absolute;
+                top: 50%;
+                margin-top: -25px;
+                height: 50px;
+                width: 100%;
+                color: #333;
+                font-size: 24pt;
+                text-align: center;
+                text-shadow: 1px 1px #ddd;
+            }
+            .fadeable.ng-enter {
+              -webkit-transition:0.5s linear all;
+              -moz-transition:0.5s linear all;
+              -o-transition:0.5s linear all;
+              transition:0.5s linear all;
+              opacity:0;
+            }
+            .fadeable.ng-enter.ng-enter-active {
+              opacity: 1;
+            }
+            .fadeable.ng-leave {
+              -webkit-animation:0.5s fadeAnimation;
+              -moz-animation:0.5s fadeAnimation;
+              -o-animation:0.5s fadeAnimation;
+              animation:0.5s fadeAnimation;
+            }
+            
+            @keyframes fadeAnimation {
+              from { opacity:1; }
+              to { opacity:0; }
+            }
+            
+            /*
+              Unfortunately each browser vendor requires
+              its own definition of keyframe animation code...
+            */
+            @-webkit-keyframes fadeAnimation {
+              from { opacity:1; }
+              to { opacity:0; }
+            }
+            
+            @-moz-keyframes fadeAnimation {
+              from { opacity:1; }
+              to { opacity:0; }
+            }
+            
+            @-o-keyframes fadeAnimation {
+              from { opacity:1; }
+              to { opacity:0; }
+            }
+            
+            .loading .substatus {
+                position: absolute;
+                bottom: 20%;
+                width: 100%;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body ng-click="touchHover(null,$event)" class="csheet">
+        <div class="loading fadeable" data-ng-if="!loading.initialLoad">
+            <div class="message">
+                Loading character sheet...
+            </div>
+            <div class="substatus" ng-bind-template="{{loading.status}}"></div>
+        </div>
+        <div data-ng-include="sheetsTemplate" class="fadeable"></div>
+        
+        
+        <link rel="stylesheet" type="text/css" href="css/charactersheet-default.css?v=6">
+        <link rel="stylesheet" type="text/css" href="css/modal-styles.css?v=5">
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.3/angular-material.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.3/angular-material.min.css" />
+        <script src="js/libs/jquery.csv-0.71.min.js"></script>
+        <script src="js/libs/bootstrap.min.js"></script>
+        <script src="js/libs/ui-bootstrap-tpls-0.14.1.min.js"></script>
+        <script type="text/javascript" src="js/controller.js?v=5"></script>
+        <script type="text/javascript" src="js/pf-libraries.js?v=5"></script>
+        <script type="text/javascript" src="js/filters/formatters.js?v=5"></script>
+        <script type="text/javascript" src="js/csheet-classes.js?v=5"></script>
+        <script type="text/javascript" src="js/character-models.js?v=9"></script>
+        <script type="text/javascript" src="js/class-models.js?v=5"></script>
+        <script>
+            // Preloading page background images
+            $.preloadImages = function() {
+              for (var i = 0; i < arguments.length; i++) {
+                $("<img />").attr("src", arguments[i]);
+              }
+            }
+        </script>
+        <script type="text/javascript" src="js/characters/Mildred.js"></script>
+        <script type="text/javascript" src="js/polyfills/object-observe.js"></script>
+        <script type="text/javascript" src="js/polyfills/array-observe.js"></script>
+    </body>
+</html>

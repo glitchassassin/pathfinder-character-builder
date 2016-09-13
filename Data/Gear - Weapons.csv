@@ -1,0 +1,268 @@
+weapon_id,weapon,cost,base_dmg,critical,range,misfire,capacity,weight,type,special,source,category,proficiency,groups
+aklys,Aklys,5 gp,1d6,x2,20 ft.,,,2 lbs.,B,"performance, trip",PRG:UC,Light Melee,Exotic,hammers; thrown
+ammentum,Ammentum,,1d6,x2,50 ft.,,,1 lb.,P,performance,PRG:UC,Ranged Thrown,Martial,
+ankus,Ankus,8 gp,1d8,x2,,,,5 lbs.,P,"disarm, trip",PPC:MTT,One-Handed Melee,Martial,"blades, heavy;"
+arrow-bleeding,"Arrow, bleeding (1)",360 gp,see text,see text,see text,,,see text,see text,see text,PPC:Elves,Ammunition,Martial,
+arrow-durable,"Arrow, durable (1)",1 gp,see text,see text,see text,,,see text,see text,see text,PPC:Elves,Ammunition,Martial,
+arrow-dye,"Arrow, dye (1)",1 gp,see text,see text,see text,,,4 lbs.,,see text,PPC:Elves,Ammunition,Martial,
+arrow-lodestone,"Arrow, lodestone (1)",10 gp,see text,see text,see text,,,see text,see text,see text,PPC:Elves,Ammunition,Martial,
+arrow-pheromone,"Arrow, pheromone (1)",15 gp,see text,see text,see text,,,see text,see text,see text,PPC:Elves,Ammunition,Martial,
+arrow-raining,"Arrow, raining (1)",30 gp,see text,see text,see text,,,see text,see text,see text,PPC:Elves,Ammunition,Martial,
+arrow-slow-burn,"Arrow, slow burn (1)",150 gp,see text,see text,see text,,,see text,see text,see text,PPC:Elves,Ammunition,Martial,
+arrow-smoke,"Arrow, smoke (1)",10 gp,,,,,,,P,see text,PRG:APG,Ammunition,Martial,
+arrow-splintercloud,"Arrow, splintercloud (1)",25 gp,see text,see text,see text,,,see text,see text,see text,PPC:Elves,Ammunition,Martial,
+arrow-tanglefoot,"Arrow, tanglefoot (1)",20 gp,see text,see text,see text,,,see text,see text,see text,PPC:Elves,Ammunition,Martial,
+arrow-thistle,"Arrow, thistle (1)",1 gp,,,,,,0.15 lbs,P,see text,PPC:AA,Ammunition,Martial,
+arrow-throwing,"Arrow, throwing (1)",5 sp,see text,see text,see text,,,1/2 lb.,see text,see text,PPC:RTT,Ammunition,Martial,
+arrow-trip,"Arrow, trip (1)",25 gp,see text,see text,see text,,,see text,see text,see text,PPC:Elves,Ammunition,Martial,
+arrows-blunt,"Arrows, blunt (20)",2 gp,,,,,,3 lbs.,B,see text,PRG:APG,Ammunition,Martial,
+arrows-common,"Arrows, common (20)",1 gp,,,,,,3 lbs.,P,,PRG:CRB,Ammunition,Martial,
+arrows-flight,"Arrows, flight (20)",2 gp,,,see text,,,3 lbs.,P,see text,PRG:APG,Ammunition,Martial,
+arrows-whistling,"Arrows, whistling (20)",2 gp,,,,,,3 lbs.,,,PRG:UC,Ammunition,Martial,
+arrows/bolts-barbed,"Arrows/bolts, barbed (20)",2 gp,see text,see text,see text,,,3 lbs.,P,grapple,PPC:RTT,Ammunition,Martial,
+arrows/bolts-incendiary,"Arrows/bolts, incendiary (20)",10 gp,see text,see text,see text,,,3 lbs.,see text,see text,PPC:RTT,Ammunition,Martial,
+arrows/bolts-pronged,"Arrows/bolts, pronged (20)",2 gp,see text,see text,see text,,,3 lbs.,see text,see text,PPC:RTT,Ammunition,Martial,
+axe-boarding,"Axe, boarding",6 gp,1d6,x3,,,,3 lbs.,P/S,,PPC:Pirates,Light Melee,Martial,axes
+axe-hooked,"Axe, hooked",20 gp,1d8,x3,,,,7 lbs.,S,"disarm, performance, trip",PRG:UC,One-Handed Melee,Exotic,axes
+axe-knuckle,"Axe, knuckle",9 gp,1d6,x3,,,,2 lbs.,S,"monk, performance",PRG:UC,Light Melee,Exotic,axes
+axe-orc-double,"Axe, Orc Double",60 gp,1d8/1d8,x3,,,,15 lbs.,S,double,PRG:CRB,Two-Handed Melee,Exotic,axes
+axe-throwing,"Axe, throwing",8 gp,1d6,x2,10 ft.,,,2 lbs.,S,,PRG:CRB,Ranged Thrown,Martial,axes
+barbazu-beard,Barbazu beard,25 gp,1d4,x2,,,,5 lbs,S,see text,PPC:Devils,Light Melee,Exotic,
+bardiche,Bardiche,13 gp,1d10,19-20/x2,,,,14 lbs.,S,"brace, reach, see text",PRG:APG,Two-Handed Melee,Martial,axes
+battle-aspergillum,Battle aspergillum,5 gp,1d6,x2,,,,4 lb.,B,see text,PRG:APG,Light Melee,Simple,hammers
+battle-ladder,Battle Ladder,20 gp,1d6/1d6,x2,,,,8 lbs.,B,trip,PPC:Goblins,Two-Handed Melee,Exotic,
+battle-poi,Battle poi,5 gp,1d4 fire,x2,,,,2 lbs.,fire,,PPC:AA,Light Melee,Exotic,flails
+battleaxe,Battleaxe,10 gp,1d8,x3,,,,6 lbs.,S,,PRG:CRB,One-Handed Melee,Martial,axes
+bayonet,Bayonet,5 gp,1d6,x2,,,,1 lb.,P,,PRG:APG,Two-Handed Melee,Simple,"blades, light; close"
+bec-de-corbin,Bec de corbin,15 gp,1d10,x3,,,,12 lbs.,B/P,"brace, reach, see text",PRG:APG,Two-Handed Melee,Martial,polearms
+bill,Bill,11 gp,1d8,x3,,,,11 lbs.,S,"brace, disarm, reach, see text",PRG:APG,Two-Handed Melee,Martial,polearms
+blade-boot,Blade boot,25 gp,1d4,x2,,,,2 lbs.,P,see text,PPC:AA,Light Melee,Martial,close
+blowgun,Blowgun,2 gp,1d2,x2,20 ft.,,,1 lb.,P,,PRG:CRB,Ranged Projectile,Simple,thrown
+blunderbuss,Blunderbuss,"2,000 gp",1d8,x2,special,1-2 (10 ft.),1,8 lbs.,B/P,scatter,UC,Two-Handed Firearm,Early Firearms,firearms
+boarding-gaff,Boarding gaff,8 gp,1d6/1d6,x2,,,,8 lbs.,S,"double, reach, trip",PPC:Pirates,Two-Handed Melee,Exotic,
+boarding-pike,Boarding pike,8 gp,1d8,x3,,,,9 lbs.,P,"brace, reach",PPC:Pirates,Two-Handed Melee,Simple,
+bola,Bola,5 gp,1d4,x2,10 ft.,,,2 lbs.,B,"nonlethal, trip",PRG:CRB,Ranged Thrown,Exotic,thrown
+bola-brutal,"Bola, Brutal",15 gp,1d4,x2,10 ft.,,,2 lbs.,B/P,trip,PCS:ISWG-Revised,Ranged Thrown,Exotic,thrown
+bolt-acid,"Bolt(s), acid (1)",40 gp,,,,,,0.1 lb.,,see text,PAP15,Ammunition,Simple,
+bolt-crossbow,"Bolt(s), crossbow (10)",1 gp,,,,,,1 lb.,,,PRG:CRB,Ammunition,Simple,
+bolt-drow-poison,"Bolt(s), Drow poison (1)",100 gp,,,,,,0.1 lb.,,see text,PAP15,Ammunition,Simple,
+bolt-fire,"Bolt(s), fire (1)",50 gp,,,,,,0.1 lb.,,see text,PAP15,Ammunition,Simple,
+boomerang,Boomerang,3 gp,1d6,x2,30 ft.,,,3 lbs.,B,,PRG:APG,Ranged Thrown,Exotic,thrown
+bow-thorn,"Bow, thorn",50 gp,1d6,x3,40 ft.,,,2 lbs.,P,,PPC:AA,Ranged Projectile,Exotic,bows
+brass-knife,Brass knife,2 gp,1d4,19-20/x2,10 ft.,,,1 lb.,P/S,fragile,PPC:Pirates,Light Melee,Simple,
+brass-knuckles,Brass knuckles,1 gp,1d3,x2,,,,1 lb.,B,monk,PPC:AA/PRG:APG,Light Melee,Simple,close; monk
+buckler-gun,Buckler gun,750 gp,1d6,x4,10 ft.,1 (5 ft.),2,6 lbs.,B/P,,UC,One-Handed Firearm,Early Firearms,firearms
+bullet-groaning,"Bullet(s), groaning (10)",2 gp,,,,,,5 lbs.,,see text,PPC:AA,Ammunition,Simple,
+bullet-sling,"Bullet(s), sling (10)",1 sp,,,,,,5 lbs.,,,PRG:CRB,Ammunition,Simple,
+bullet-smoke,"Bullet(s), smoke (10)",100 gp,,,,,,5 lbs.,,see text,PCS,Ammunition,Simple,
+cat-o-nine-tails,Cat-o'-nine-tails,1 gp,1d4,x2,,,,1 lb.,S,"disarm, nonlethal",PPC:Pirates,Light Melee,Martial,flails; monk
+cestus,Cestus,5 gp,1d4,19-20/x2,,,,1 lb.,B/P,monk,PRG:APG,Light Melee,Simple,close; monk
+chain-spiked,"Chain, Spiked",25 gp,2d4,x2,,,,10 lbs.,P,"disarm, trip",PRG:CRB,Two-Handed Melee,Exotic,flails
+chakram,Chakram,1 gp,1d8,x2,30 ft.,,,1 lb.,S,,PRG:APG,Ranged Thrown,Martial,"blades, heavy;"
+club,Club,,1d6,x2,10 ft.,,,3 lbs.,B,,PRG:CRB,One-Handed Melee,Simple,hammers; thrown
+club-mere,"Club, mere",2 gp,1d4,x2,,,,2 lbs.,B/P,fragile,PPC:AA,One-Handed Melee,Simple,hammers; close
+combat-scabbard,Combat scabbard,1 gp,1d6,x2,,,,1 lb.,B,"improvised, see text",PPC:AA,One-Handed Melee,Martial,
+crook,Crook,1 gp,1d6,x2,,,,5 lbs.,B,"reach, trip",PPC:MTT,Two-Handed Melee,Exotic,polearms
+crossbow-bolt,"Crossbow bolt(s), heavy/light/hand (10)",1 gp,,,,,,1 lb.,,,PRG:CRB,Ammunition,Exotic,
+crossbow-bolt-repeating,"Crossbow bolt(s), repeating, heavy/light (5)",1 gp,,,,,,1 lb.,,,PRG:CRB,Ammunition,Exotic,
+crossbow-crank-heavy,"Crossbow, crank (heavy)",400 gp,1d10,19-20/x2,120 ft.,,,12 lbs.,P,,PPC:RTT,Ranged Projectile,Exotic,crossbows
+crossbow-crank-light,"Crossbow, crank (light)",250 gp,1d8,19-20/x2,80 ft.,,,6 lbs.,P,,PPC:RTT,Ranged Projectile,Exotic,crossbows
+crossbow-double,"Crossbow, double",300 gp,1d8,19-20/x2,80 ft.,,,18 lbs.,P,,PRG:APG,Ranged Projectile,Exotic,crossbows
+crossbow-hand,"Crossbow, hand",100 gp,1d4,19-20/x2,30 ft.,,,2 lbs.,P,,PRG:CRB,Ranged Projectile,Exotic,crossbows
+crossbow-heavy,"Crossbow, heavy",50 gp,1d10,19-20/x2,120 ft.,,,8 lbs.,P,,PRG:CRB,Ranged Projectile,Simple,crossbows
+crossbow-heavy-underwater,"Crossbow, heavy (underwater)",100 gp,1d10,19-20/x2,120 ft.,,,8 lbs.,P,,PRG:ARG,Ranged Projectile,Simple,crossbows
+crossbow-launching,"Crossbow, launching",75 gp,,,30 ft.,,,8 lbs.,,see text,PPC:AA,Ranged Projectile,Exotic,crossbows
+crossbow-light,"Crossbow, light",35 gp,1d8,19-20/x2,80 ft.,,,4 lbs.,P,,PRG:CRB,Ranged Projectile,Simple,crossbows
+crossbow-light-underwater,"Crossbow, light (underwater)",70 gp,1d8,19-20/x2,80 ft.,,,4 lbs.,P,,PRG:ARG,Ranged Projectile,Simple,crossbows
+crossbow-repeating,"Crossbow, repeating",250 gp,1d8,19-20/x2,80 ft.,,,6 lbs.,P,,PRG:CRB,Ranged Projectile,Exotic,crossbows
+crossbow-repeating-heavy,"Crossbow, repeating heavy",400 gp,1d10,19-20/x2,120 ft.,,,12 lbs.,P,,PRG:CRB,Ranged Projectile,Exotic,crossbows
+culverin,Culverin,"4,000 gp",2d8,x4,30 ft.,1 (10 ft.),1,40 lbs.,B/P,scatter,UC,Two-Handed Firearm,Early Firearms,firearms
+curve-blade-elven,"Curve blade, elven",80 gp,1d10,18-20/x2,,,,7 lbs.,S,,PRG:CRB,Two-Handed Melee,Exotic,"blades, heavy;"
+cutlass,Cutlass,15 gp,1d6,18-20/x2,,,,4 lbs.,S,,PPC:Pirates,One-Handed Melee,Martial,
+dagger,Dagger,2 gp,1d4,19-20/x2,10 ft.,,,1 lb.,P/S,,PRG:CRB,Light Melee,Simple,"blades, light; thrown"
+dagger-punching,"Dagger, punching",2 gp,1d4,x3,,,,1 lb.,P,,PRG:CRB,Light Melee,Simple,close
+dagger-swordbreaker,"Dagger, swordbreaker",10 gp,1d4,x2,,,,3 lbs.,S,"disarm, sunder",PRG:APG,Light Melee,Exotic,"blades, light"
+dart,Dart,5 sp,1d4,x2,20 ft.,,,1/2 lb.,P,,PRG:CRB,Ranged Thrown,Simple,thrown
+dart-jolting,"Dart, jolting",100 gp,1d4,x2,20 ft.,,,1/2 lb.,P,see text,PRG:ARG,Ranged Thrown,Martial,thrown
+dart-blowgun,"Dart(s), blowgun (10)",5 sp,,,,,,1 lb.,,,PRG:CRB,Ammunition,Simple,
+dogslicer,Dogslicer,8 gp,1d6,19-20/x2,,,,1 lb.,S,fragile,PRG:ARG,Light Melee,Martial,
+dorn-dergar-dwarven,"Dorn Dergar, dwarven",50 gp,1d10,x2,,,,15 lbs.,B,reach,PPC:Dwarves,Two-Handed Melee,Exotic,
+double-hackbut,Double hackbut,"4,000 gp",2d12,x4,50 ft.,1-2 (5 ft.),2,18 lbs.,B/P,,UC,Two-Handed Firearm,Early Firearms,firearms
+earth-breaker,Earth breaker,40 gp,2d6,x3,,,,14 lbs.,B,,PCS:ISWG-Revised,Two-Handed Melee,Martial,
+elven-branched-spear,Elven branched spear,20 gp,1d8,x3,,,,10 lbs.,P,"brace, reach",PPC:MTT,Two-Handed Melee,Exotic,spears
+estoc,Estoc,50 gp,2d4,18-20/x2,,,,4 lbs.,P,,PPC:MTT,One-Handed Melee,Exotic,"blades, heavy;"
+falcata,Falcata,18 gp,1d8,19-20/x3,,,,4 lbs.,S,,PRG:APG,One-Handed Melee,Exotic,"blades, heavy;"
+falchion,Falchion,75 gp,2d4,18-20/x2,,,,8 lbs.,S,,PRG:CRB,Two-Handed Melee,Martial,"blades, heavy;"
+fauchard,Fauchard,14 gp,1d10,18-20/x2,,,,10 lbs.,S,"reach, trip",PCh:CHR,Two-Handed Melee,Exotic,
+fire-lance,Fire lance,25 gp,1d6,x4,10 ft.,1-4 (5 ft.),1,4 lbs.,P,,UC,Two-Handed Firearm,Early Firearms,firearms
+flail,Flail,8 gp,1d8,x2,,,,5 lbs.,B,"disarm, trip",PRG:CRB,One-Handed Melee,Martial,flails
+flail-dire,"Flail, dire",90 gp,1d8/1d8,x2,,,,10 lbs.,B,"disarm, double, trip",PRG:CRB,Two-Handed Melee,Exotic,flails; double
+flail-heavy,"Flail, heavy",15 gp,1d10,19-20/x2,,,,10 lbs.,B,"disarm, trip",PRG:CRB,Two-Handed Melee,Martial,flails
+flailpole,Flailpole,15 gp,1d8,x2,,,,10 lbs.,S,"reach, trip",PPC:Goblins,Two-Handed Melee,Exotic,
+flambard,Flambard,50 gp,1d10,19-20/x2,,,,6 lbs.,S,sunder,PPC:AA,Two-Handed Melee,Exotic,"blades, heavy;"
+flask-thrower,Flask Thrower,25 gp,,,20 ft.,,,4 lbs.,,see text,PPC:Goblins,Ranged Thrown,Exotic,
+flindbar,Flindbar,9 gp,1d8,x2,,,,6 lbs.,B/P,"disarm, trip",MC,One-Handed Melee,Exotic,
+flying-blade,Flying blade,40 gp,1d12,x3,,,,12 lbs.,S,"performance, reach",PRG:UC,Two-Handed Melee,Exotic,flails
+flying-talon,Flying Talon,15 gp,1d4,x2,10 ft.,,,5 lbs.,P,"disarm, trip",ModuleD1,Light Melee,Exotic,
+gandasa,Gandasa,15 gp,2d4,x3,,,,4 lbs.,S,,PPC:MTT,One-Handed Melee,Martial,axes
+garrote,Garrote,3 gp,1d6,x2,,,,1 lb.,S,"grapple, see text",PPC:AA,Two-Handed Melee,Exotic,
+gauntlet,Gauntlet,2 gp,1d3,x2,,,,1 lb.,B,,PRG:CRB,Unarmed Attack,Simple,close
+gauntlet-spiked,"Gauntlet, spiked",5 gp,1d4,x2,,,,1 lb.,P,,PRG:CRB,Light Melee,Simple,close
+gladius,Gladius,15 gp,1d6,19-20/x2,,,,3 lbs.,P/S,performance,PRG:UC,Light Melee,Martial,"blades, light"
+glaive,Glaive,8 gp,1d10,x3,,,,10 lbs.,S,reach,PRG:CRB,Two-Handed Melee,Martial,polearms
+glaive-guisarme,Glaive-guisarme,12 gp,1d10,x3,,,,10 lbs.,S,"brace, reach, see text",PRG:APG,Two-Handed Melee,Martial,polearms
+gnome-pincher,Gnome pincher,10 gp,1d6,x2,,,,2 lbs.,B,"disarm, see text",PPC:MTT,Light Melee,Exotic,flails
+grappling-hook,Grappling hook,6 gp,1d6,x2,10 ft.,,,14 lbs.,P,grapple,PPC:Pirates,Ranged Thrown,Exotic,
+greataxe,Greataxe,20 gp,1d12,x3,,,,12 lbs.,S,,PRG:CRB,Two-Handed Melee,Martial,axes
+greatclub,Greatclub,5 gp,1d10,x2,,,,8 lbs.,B,,PRG:CRB,Two-Handed Melee,Martial,hammers
+greatsword,Greatsword,50 gp,2d6,19-20/x2,,,,8 lbs.,S,,PRG:CRB,Two-Handed Melee,Martial,"blades, heavy;"
+guisarme,Guisarme,9 gp,2d4,x3,,,,12 lbs.,S,"reach, trip",PRG:CRB,Two-Handed Melee,Martial,polearms
+halberd,Halberd,10 gp,1d10,x3,,,,12 lbs.,P/S,"brace, trip",PRG:CRB,Two-Handed Melee,Martial,polearms
+halfling-rope-shot,Halfling rope-shot,1 gp,1d6,x2,,,,1 lb.,B,disarm,PPC:MTT,Light Melee,Exotic,flails
+hammer-gnome-hooked,"Hammer, Gnome hooked",20 gp,1d8/1d6,x3/x4,,,,6 lbs.,B/P,"double, trip",PRG:CRB,Two-Handed Melee,Exotic,double
+hammer-light,"Hammer, light",1 gp,1d4,x2,20 ft.,,,2 lbs.,B,,PRG:CRB,Light Melee,Martial,hammers; thrown
+hammer-lucerne,"Hammer, lucerne",15 gp,1d12,x2,,,,12 lbs.,B/P,"brace, reach, see text",PRG:APG,Two-Handed Melee,Martial,polearms
+handaxe,Handaxe,6 gp,1d6,x3,,,,3 lbs.,S,,PRG:CRB,Light Melee,Martial,axes
+harpoon,Harpoon,5 gp,1d8,x3,10 ft.,,,16 lbs.,P,grapple,PPC:Pirates,Two-Handed Melee,Exotic,spears; thrown
+helmet-dwarven-boulder,"Helmet, dwarven boulder",20 gp,1d4,x2,,,,10 lbs.,B,see text,PRG:ARG,Light Melee,Exotic,
+hook-hand,Hook hand,10 gp,1d4,x2,,,,1 lb.,S,disarm,PPC:Pirates,Light Melee,Simple,
+horsechopper,Horsechopper,10 gp,1d10,x3,,,,12 lbs.,P/S,"reach, trip",PRG:ARG,Two-Handed Melee,Martial,
+hunga-munga,Hunga munga,4 gp,1d6,x2,15 ft.,,,3 lbs.,P,,PPC:AA,Ranged Thrown,Martial,"blades, light"
+hurlbat,Hurlbat,8 gp,1d6,x3,10 ft.,,,2 lbs.,P/S,,PPC:RTT,Ranged Thrown,Martial,
+javelin,Javelin,1 gp,1d6,x2,30 ft.,,,2 lbs.,P,,PRG:CRB,Ranged Thrown,Simple,spears; thrown
+kama,Kama,2 gp,1d6,x2,,,,2 lbs.,S,"monk, trip",PRG:CRB,Light Melee,Exotic,"blades, light; monk"
+katar-tri-bladed,"Katar, tri-bladed",6 gp,1d4,x4,,,,2 lbs.,P,,PCS,Light Melee,Exotic,"blades, light; close"
+khopesh,Khopesh,20 gp,1d8,19-20/x2,,,,8 lbs.,S,trip,PRG:APG,One-Handed Melee,Exotic,"blades, heavy;"
+klar,Klar,12 gp,1d6,x2,,,,6 lbs.,S,,PCS:ISWG-Revised,One-Handed Melee,Martial,"blades, heavy;"
+knife-butterfly,"Knife, butterfly",5 gp,1d4,19-20/x2,,,,1 lb.,P/S,,PPC:AA,Light Melee,Exotic,"blades, light"
+knife-deer-horn,"Knife, deer horn",10 gp,1d4,x3,20 ft.,,,3 lbs.,P,"blocking, monk",PPC:MTT,Light Melee,Exotic,"blades, light; monk; thrown"
+knife-switchblade,"Knife, switchblade",5 gp,1d4,19-20/x2,10 ft.,,,1 lb.,P,,PPC:AA,Light Melee,Martial,
+knobkerrie,Knobkerrie,5 gp,1d6,x2,20 ft.,,,4 lbs.,B,see text,PPC:RTT,One-Handed Melee,Exotic,
+kobold-tail-attachment-long-lash,"Kobold tail attachment, Long lash",15 gp,1d6,x2,,,,1 lb.,S,reach,PRG:ARG,Light Melee,Martial,
+kobold-tail-attachment-pounder,"Kobold tail attachment, Pounder",1 gp,1d8,x2,,,,4 lbs.,B,,PRG:ARG,Light Melee,Martial,
+kobold-tail-attachment-razored,"Kobold tail attachment, Razored",3 gp,1d8,19-20/x2,,,,2 lbs.,S,,PRG:ARG,Light Melee,Martial,
+kobold-tail-attachment-spiked,"Kobold tail attachment, Spiked",3 gp,1d8,x3,,,,2 lbs.,P,,PRG:ARG,Light Melee,Martial,
+kobold-tail-attachment-sweeper,"Kobold tail attachment, Sweeper",7 gp,1d6,x2,,,,3 lbs.,B,trip,PRG:ARG,Light Melee,Martial,
+kukri,Kukri,8 gp,1d4,18-20/x2,,,,2 lbs.,S,,PRG:CRB,Light Melee,Martial,"blades, light"
+kumade,Kumade,5 gp,1d6,x3,,,,4 lbs.,P,grapple,PPC:MTT,Two-Handed Melee,Simple,axes
+kumade-collapsible,"Kumade, collapsible",10 gp,1d6,x3,,,,4 lbs.,P,grapple,PPC:MTT,Two-Handed Melee,Simple,axes
+kunai,Kunai,2 gp,1d4,x2,10 ft.,,,2 lbs.,B/P,,PPC:RTT,Light Melee,Simple,
+lance,Lance,10 gp,1d8,x3,,,,10 lbs.,P,reach,PRG:CRB,Two-Handed Melee,Martial,spears
+lasso,Lasso,1 sp,,,,,,5 lbs.,,see text,PRG:APG,Ranged Thrown,Exotic,thrown
+little-starstones,Little starstones (10),5 cp,1,,,,,2 lbs.,B,nonleethal,PPC:Halflings,Ammunition,Exotic,
+longaxe-dwarven,"Longaxe, dwarven",50 gp,1d12,x3,,,,14 lbs.,S,reach,PRG:ARG,Two-Handed Melee,Exotic,
+longbow,Longbow,75 gp,1d8,x3,100 ft.,,,3 lbs.,P,,PRG:CRB,Ranged Projectile,Martial,bows
+longbow-composite-0,"Longbow, composite (+0)",100 gp,1d8,x3,110 ft.,,,3 lbs.,P,Strength (-),PRG:CRB,Ranged Projectile,Martial,bows
+longbow-composite-1,"Longbow, composite (+1)",200 gp,1d8,x3,110 ft.,,,3 lbs.,P,Strength (12),PRG:CRB,Ranged Projectile,Martial,bows
+longbow-composite-2,"Longbow, composite (+2)",300 gp,1d8,x3,110 ft.,,,3 lbs.,P,Strength (14),PRG:CRB,Ranged Projectile,Martial,bows
+longbow-composite-3,"Longbow, composite (+3)",400 gp,1d8,x3,110 ft.,,,3 lbs.,P,Strength (16),PRG:CRB,Ranged Projectile,Martial,bows
+longbow-composite-4,"Longbow, composite (+4)",500 gp,1d8,x3,110 ft.,,,3 lbs.,P,Strength (18),PRG:CRB,Ranged Projectile,Martial,bows
+longbow-composite-5,"Longbow, composite (+5)",600 gp,1d8,x3,110 ft.,,,3 lbs.,P,Strength (20),PRG:CRB,Ranged Projectile,Martial,bows
+longhammer-dwarven,"Longhammer, dwarven",70 gp,2d6,x3,,,,20 lbs.,B,reach,PRG:ARG,Two-Handed Melee,Exotic,
+longspear,Longspear,5 gp,1d8,x3,,,,9 lbs.,P,"brace, reach",PRG:CRB,Two-Handed Melee,Simple,spears
+longsword,Longsword,15 gp,1d8,19-20/x2,,,,4 lbs.,S,,PRG:CRB,One-Handed Melee,Martial,"blades, heavy;"
+mace-heavy,"Mace, heavy",12 gp,1d8,x2,,,,8 lbs.,B,,PRG:CRB,One-Handed Melee,Simple,hammers
+mace-light,"Mace, light",5 gp,1d6,x2,,,,4 lbs.,B,,PRG:CRB,Light Melee,Simple,hammers
+machete,Machete,10 gp,1d6,19-20/x2,,,,2 lbs.,S,,PPC:MTT,Light Melee,Martial,"blades, light"
+mancatcher,Mancatcher,15 gp,1d2,x2,,,,10 lbs.,P,"grapple, reach, see text",PRG:APG,Two-Handed Melee,Exotic,polearms
+manople,Manople,17 gp,1d8,x2,,,,4 lbs.,P/S,"blocking, disarm",PPC:MTT,One-Handed Melee,Martial,"blades, light"
+maulaxe-dwarven,"Maulaxe, dwarven",25 gp,1d6,x3,10 ft.,,,5 lbs.,B/S,,PPC:AA,Light Melee,Exotic,
+morningstar,Morningstar,8 gp,1d8,x2,,,,6 lbs.,B/P,,PRG:CRB,One-Handed Melee,Simple,flails
+musket,Musket,"1,500 gp",1d12,x4,40 ft.,1-2 (5 ft.),1,9 lbs.,B/P,,UC,Two-Handed Firearm,Early Firearms,firearms
+musket-axe,"Musket, axe","1,600 gp",1d8,x4,30 ft.,1-2 (5 ft.),1,6 lbs.,B/P,,UC,Two-Handed Firearm,Early Firearms,firearms
+musket-double-barreled,"Musket, double-barreled","2,500 gp",1d12,x4,40 ft.,1-3 (5 ft.),2,11 lbs.,B/P,,UC,Two-Handed Firearm,Early Firearms,firearms
+musket-warhammer,"Musket, warhammer","1,600 gp",1d8,x4,30 ft.,1-2 (5 ft.),1,6 lbs.,B/P,,UC,Two-Handed Firearm,Early Firearms,firearms
+net,Net,20 gp,,,10 ft.,,,6 lbs.,,,PRG:CRB,Ranged Thrown,Exotic,thrown
+net-snag,"Net, snag",30 gp,see text,,10 ft.,,,10 lbs.,P,"trip, see text",PRG:ARG,Ranged Thrown,Exotic,thrown
+nunchaku,Nunchaku,2 gp,1d6,x2,,,,2 lbs.,B,"disarm, monk",PRG:CRB,Light Melee,Exotic,flails; monk
+ogre-hook,Ogre hook,24 gp,1d10,x3,,,,10 lbs.,P,trip,PCS:ISWG-Revised,Two-Handed Melee,Martial,
+orc-skull-ram,Orc skull ram,15 gp,1d10,x3,,,,20 lbs.,B,reach,PPC:MTT,Two-Handed Melee,Exotic,spears
+pepperbox,Pepperbox,"3,000 gp",1d8,x4,20 ft.,1-2 (5 ft.),6,5 lbs.,B/P,,UC,One-Handed Firearm,Early Firearms,firearms
+pick-heavy,"Pick, heavy",8 gp,1d6,x4,,,,6 lbs.,P,,PRG:CRB,One-Handed Melee,Martial,axes
+pick-light,"Pick, light",4 gp,1d4,x4,,,,3 lbs.,P,,PRG:CRB,Light Melee,Martial,axes
+pickaxe,Pickaxe,14 gp,1d8,x4,,,,12 lbs.,P,,PAP14,Two-Handed Melee,Martial,
+pilum,Pilum,5 gp,1d8,x2,20 ft.,,,4 lbs.,P,see text,PRG:APG,Ranged Thrown,Martial,spears
+pistol,Pistol,"1,000 gp",1d8,x4,20 ft.,1 (5 ft.),1,4 lbs.,B/P,,UC,One-Handed Firearm,Early Firearms,firearms
+pistol-coat,"Pistol, coat",750 gp,1d4,x3,10 ft.,1 (5 ft.),1,1 lb.,B/P,,UC,One-Handed Firearm,Early Firearms,firearms
+pistol-dagger,"Pistol, dagger",740 gp,1d4,x3,10 ft.,1 (5 ft.),1,1 lb.,B/P,,UC,One-Handed Firearm,Early Firearms,firearms
+pistol-double-barreled,"Pistol, double-barreled","1,750 gp",1d8,x4,20 ft.,1-2 (5 ft.),2,5 lbs.,B/P,,UC,One-Handed Firearm,Early Firearms,firearms
+pistol-dragon,"Pistol, dragon","1,000 gp",1d6,x4,20 ft.,1-2 (5 ft.),1,3 lbs.,B/P,scatter,UC,One-Handed Firearm,Early Firearms,firearms
+pistol-sword-cane,"Pistol, sword cane",775 gp,1d4,x3,10 ft.,1 (5 ft.),1,1 lb.,B/P,,UC,One-Handed Firearm,Early Firearms,firearms
+piston-maul,Piston maul,70 gp,1d10,x2,,,,15 lbs.,B,see text,PPC:Goblins,Two-Handed Melee,Exotic,
+planson,Planson,10 gp,1d10,x2,,,,10 lbs.,B/P,brace,PPC:MTT,Two-Handed Melee,Martial,spears; hammers
+quadrens,Quadrens,8 gp,1d6,19-20/x2,,,,2 lbs.,P,performance,PRG:UC,Light Melee,Exotic,"blades, light"
+quarterstaff,Quarterstaff,,1d6/1d6,x2,,,,4 lbs.,B,"double, monk",PRG:CRB,Two-Handed Melee,Simple,monk; double
+ranseur,Ranseur,10 gp,2d4,x3,,,,12 lbs.,P,"disarm, reach",PRG:CRB,Two-Handed Melee,Martial,polearms
+rapier,Rapier,20 gp,1d6,18-20/x2,,,,2 lbs.,P,,PRG:CRB,One-Handed Melee,Martial,"blades, light"
+ratfolk-tailblade,Ratfolk tailblade,11 gp,1d3,20/x2,,,,1/2 lb.,S,,PRG:ARG,Light Melee,Martial,
+revolver,Revolver,"4,000 gp",1d8,x4,20 ft.,1,6,4 lbs.,B/P,,UC,One-Handed Firearm,Advanced Firearms,firearms
+rhoka,Rhoka,5 gp,1d8,18-20/x2,,,,6 lbs.,S,,PPC:AA,One-Handed Melee,Exotic,
+rifle,Rifle,"5,000 gp",1d10,x4,80 ft.,1,1,12 lbs.,B/P,,UC,Two-Handed Firearm,Advanced Firearms,firearms
+rifle-pepperbox,"Rifle, pepperbox","7,000 gp",1d10,x4,80 ft.,1/2/2015,4,15 lbs.,B/P,,UC,Two-Handed Firearm,Advanced Firearms,firearms
+ripsaw-glaive,Ripsaw glaive,30 gp,1d10,x3,,,,12 lbs.,S,"reach, see text",PPC:Goblins,Two-Handed Melee,Exotic,
+rope-gauntlet,Rope gauntlet,2 sp,1d4,x2,,,,2 lbs.,B/S,,PPC:AA,Light Melee,Exotic,close
+sabre-sawtooth,"Sabre, sawtooth",35 gp,1d8,19-20/x2,,,,2 lbs.,S,,PCS:ISWG-Revised,One-Handed Melee,Exotic,"blades, light"
+sai,Sai,1 gp,1d4,x2,,,,1 lb.,B,"disarm, monk",PRG:CRB,Light Melee,Exotic,monk
+sap,Sap,1 gp,1d6,x2,,,,2 lbs.,B,nonlethal,PRG:CRB,Light Melee,Martial,close
+scabbard-combat-sharpened,"Scabbard, combat (sharpened)",10 gp,1d6,x2,,,,1 lb.,S,see text,PPC:AA,One-Handed Melee,Martial,
+scarf-bladed,"Scarf, bladed",12 gp,1d6,x2,,,,2 lbs.,S,"disarm, trip",PCS:ISWG-Revised,Two-Handed Melee,Exotic,flails
+scimitar,Scimitar,15 gp,1d6,18-20/x2,,,,4 lbs.,S,,PRG:CRB,One-Handed Melee,Martial,"blades, heavy"
+scizore,Scizore,20 gp,1d10,x2,,,,3 lbs.,P,,PRG:UC,One-Handed Melee,Martial,"blades, light; close"
+scythe,Scythe,18 gp,2d4,x4,,,,10 lbs.,P/S,trip,PRG:CRB,Two-Handed Melee,Martial,"blades, heavy"
+sea-knife,Sea-knife,8 gp,1d4,19-20/x2,,,,1 lb.,S,,PRG:ARG,Light Melee,Martial,
+sharpstones,Sharpstones (10),1 gp,1d4,,,,,5 lbs.,P/S,,PPC:Halflings,Ammunition,Exotic,
+shield-heavy,"Shield, heavy",special,1d4,x2,,,,special,B,,PRG:CRB,One-Handed Melee,Martial,close
+shield-light,"Shield, light",special,1d3,x2,,,,special,B,,PRG:CRB,Light Melee,Martial,close
+shield-throwing,"Shield, throwing",+50 gp,1d6,x2,20 ft.,,,,B,"performance, trip",PRG:UC,Ranged Thrown,Exotic,thrown
+shortbow,Shortbow,30 gp,1d6,x3,60 ft.,,,2 lbs.,P,,PRG:CRB,Ranged Projectile,Martial,bows
+shortbow-composite,"Shortbow, composite",75 gp,1d6,x3,70 ft.,,,2 lbs.,P,,PRG:CRB,Ranged Projectile,Martial,bows
+shortspear,Shortspear,1 gp,1d6,x2,20 ft.,,,3 lbs.,P,,PRG:CRB,One-Handed Melee,Simple,spears; thrown
+shotel,Shotel,30 gp,1d8,x3,,,,3 lbs.,P,performance,PRG:UC,One-Handed Melee,Exotic,"blades, heavy"
+shotgun,Shotgun,"5,000 gp",1d8,x2,20 ft.,1/2/2015,1,12 lbs.,B/P,scatter,UC,Two-Handed Firearm,Advanced Firearms,firearms
+shotgun-double-barreled,"Shotgun, double-barreled","7,000 gp",1d8,x2,20 ft.,1/2/2015,2,15 lbs.,B/P,scatter,UC,Two-Handed Firearm,Advanced Firearms,firearms
+shrillshaft-javelin,Shrillshaft javelin,35 gp,1d6,x2,30 ft.,,,3 lbs.,P,see text,PPC:Goblins,Ranged Thrown,Exotic,
+shuriken,Shuriken (5),1 gp,1d2,x2,10 ft.,,,1/2 lbs.,P,monk,CRB,Ranged Thrown,Exotic,monk; thrown
+siangham,Siangham,3 gp,1d6,x2,,,,1 lb.,P,monk,PRG:CRB,Light Melee,Exotic,monk
+sica,Sica,10 gp,1d6,x2,,,,2 lbs.,S,performance,PRG:UC,Light Melee,Exotic,"blades, light"
+sickle,Sickle,6 gp,1d6,x2,,,,2 lbs.,S,trip,PRG:CRB,Light Melee,Simple,"blades, light"
+sling,Sling,,1d4,x2,50 ft.,,,,B,,PRG:CRB,Ranged Projectile,Simple,thrown
+sling-glove,Sling glove,5 gp,1d4,x2,50 ft.,,,2 lbs.,B,,PPC:AA,Ranged Projectile,Exotic,thrown
+sling-staff-halfling,"Sling staff, halfling",20 gp,1d8,x3,80 ft.,,,3 lbs.,B,,PRG:CRB,Ranged Projectile,Exotic,thrown
+sling-double,"Sling, double",10 gp,1d4,x2,50 ft.,,,1 lb.,B,"double, see text",PPC:Halflings,Ranged Projectile,Exotic,thrown
+sling-stitched,"Sling, stitched",,1d6,x2,,,,1 lb.,B,"disarm, trip",PPC:Halflings,Light Melee,Exotic,
+softstones,Softstones (10),1 sp,,,,,,4 lbs.,B,nonlethal,PPC:Halflings,Ammunition,Exotic,
+spear,Spear,2 gp,1d8,x3,20 ft.,,,6 lbs.,P,brace,PRG:CRB,Two-Handed Melee,Simple,spears; thrown
+spear-sling,Spear-sling,50 gp,1d8,x3,see text,,,2 lbs.,P,see text,PPC:RTT,Ranged Projectile,Martial,
+spear-boar,"Spear, boar",5 gp,1d8,x2,,,,8 lb.,P,"brace, see text",PRG:APG,Two-Handed Melee,Simple,spears
+spear-syringe,"Spear, syringe",100 gp,1d8,x3,20 ft.,,,6 lbs.,P,"brace, see text",PPC:AA,Two-Handed Melee,Martial,
+spear-totem,"Spear, totem",25 gp,1d10,x3,10 ft.,,,6 lbs.,P/S,see text,PRG:CRB,Two-Handed Melee,Exotic,
+spear-weighted,"Spear, weighted",10 gp,1d8/1d6,x3/x2,,,,8 lbs.,B/P,"brace, double",PPC:MTT,Two-Handed Melee,Simple,double; spears
+spiked-armor,Spiked armor,special,1d6,x2,,,,special,P,,PRG:CRB,Light Melee,Martial,close
+spiked-shield-heavy,"Spiked shield, heavy",special,1d6,x2,,,,special,P,,PRG:CRB,One-Handed Melee,Martial,close
+spiked-shield-light,"Spiked shield, light",special,1d4,x2,,,,special,P,,PRG:CRB,Light Melee,Martial,close
+spongestones,Spongestones (10),10 gp,,,,,,2 lbs.,P,,PPC:Halflings,Ammunition,Exotic,
+starknife,Starknife,24 gp,1d4,x3,20 ft.,,,3 lbs.,P,,PRG:CRB,Light Melee,Martial,"blades, light; thrown"
+stingchuck,Stingchuck,,1d4,x2,10 ft.,,,9 lbs.,B,see text,PPC:AA,Ranged Projectile,Simple,
+stonebow,Stonebow,35 gp,1d6,x2,50 ft.,,,4 lbs.,B,,PPC:RTT,Ranged Projectile,Simple,
+sword-cane,Sword cane,45 gp,1d6,x2,,,,4 lbs.,P,see text,PRG:APG,One-Handed Melee,Martial,"blades, light"
+sword-bastard,"Sword, bastard",35 gp,1d10,19-20/x2,,,,6 lbs.,S,,PRG:CRB,One-Handed Melee,Exotic,"blades, heavy;"
+sword-dueling,"Sword, dueling",20 gp,1d8,19-20/x2,,,,3 lbs,S,,PCS:ISWG-Revised,One-Handed Melee,Exotic,"blades, heavy;"
+sword-short,"Sword, short",10 gp,1d6,19-20/x2,,,,2 lbs.,P,,PRG:CRB,Light Melee,Martial,"blades, light"
+sword-two-bladed,"Sword, two-bladed",100 gp,1d8/1d8,19-20/x2,,,,10 lbs.,S,double,PRG:CRB,Two-Handed Melee,Exotic,"blades, heavy; double"
+terbutje,Terbutje,5 gp,1d8,19-20/x2,,,,2 lbs.,S,fragile,PPC:AA,One-Handed Melee,Martial,"blades, heavy;"
+terbutje-steel,"Terbutje, steel",20 gp,1d8,19-20/x2,,,,4 lbs.,S,,PPC:AA,One-Handed Melee,Martial,"blades, heavy;"
+thorn,Thorn (20),1 gp,,,,,,1 lb.,,,ModuleW1,Ammunition,Exotic,
+thorn-bracer,Thorn bracer,30 gp,1d6,x2,,,,3 lbs.,P,,PCS,Light Melee,Exotic,
+throwing-arrow-cord,Throwing arrow cord,,1d4,x2,60 ft.,,,,P,,PPC:RTT,Ranged Thrown,Martial,
+tongi,Tongi,18 gp,1d6,19-20/x3,,,,4 lbs.,P,,PPC:MTT,One-Handed Melee,Exotic,axes
+trident,Trident,15 gp,1d8,x2,10 ft.,,,4 lbs.,P,brace,PRG:CRB,One-Handed Melee,Martial,spears; thrown
+unarmed-strike,Unarmed strike,,1d3,x2,,,,,B,nonlethal,PRG:CRB,Unarmed Attack,Simple,close; natural
+urgrosh-dwarven,"Urgrosh, dwarven",50 gp,1d8/1d6,x3,,,,12 lbs.,P/S,"brace, double",PRG:CRB,Two-Handed Melee,Exotic,double
+war-razor,War razor,8 gp,1d4,19-20/x2,,,,1 lb.,S,,PCS:ISWG-Revised,Light Melee,Martial,"blades, light"
+waraxe-dwarven,"Waraxe, dwarven",30 gp,1d10,x3,,,,8 lbs.,S,,PRG:CRB,One-Handed Melee,Exotic,axes
+waraxe-dwarven-double,"Waraxe, dwarven double",60 gp,1d10,x3,,,,12 lbs.,S,see text,PRG:ARG,One-Handed Melee,Exotic,axes
+warhammer,Warhammer,12 gp,1d8,x3,,,,5 lbs.,B,,PRG:CRB,One-Handed Melee,Martial,hammers
+whip,Whip,1 gp,1d3,x2,,,,2 lbs.,S,"disarm, nonlethal, reach,trip",PRG:CRB,One-Handed Melee,Exotic,flails
+whip-scorpion,"Whip, scorpion",5 gp,1d4,x2,,,,3 lbs.,S,"disarm, performance,reach, trip",PRG:UC,Light Melee,Exotic,flails
+wooden-stake,Wooden stake,,1d4,x2,10 ft.,,,1 lb.,P,,PRG:APG,Light Melee,Simple,close
+aether-blast,Aether blast,,1d6,x2,30 ft.,,,,B/P/S,,,Kinetic Blasts,Kinetic Blasts,

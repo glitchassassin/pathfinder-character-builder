@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pf-libraries.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pf-libraries.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>csheetApp.factory("Weapon", function(Data, Bonus, ObservantArray) {
+    /**
+     * Weapon describes an actual weapon (i.e., a longsword). This may be a 
+     * template object in the Weapons library, or it may be an instantiated (and 
+     * customized) object in the character's Gear.
+     * 
+     * @class Weapon
+     * @param {Object} [template] - Template object to copy properties from
+     * @param {Object} [updaters] - List of custom updater functions to apply to corresponding properties in template object (property names must match)
+     * @param {Object} [dependencies] - List of arrays of dependency links to establish (property names must match)
+     **/
+    function Weapon(template, updaters, dependencies) {
+        /**
+         * The base name of the weapon (e.g., "longsword")
+         * 
+         * @name Weapon#name
+         **/
+        /**
+         * The base cost of the weapon, in gp
+         * 
+         * @name Weapon#cost
+         **/
+        /**
+         * Numerical bonuses or penalties associated with the weapon (including 
+         * enhancement, masterwork, and proficiency)
+         * 
+         * @name Weapon#bonuses
+         **/
+        /**
+         * Base damage for a medium-sized weapon
+         * 
+         * @name Weapon#med_base_dmg
+         **/
+        var Wpn = {
+            prefix: "",
+            name: "",
+            suffix: "",
+            cost: 0,
+            bonuses: new Bonus({
+                proficiency: -4, // Non-proficiency penalty
+                enhancement: 0,
+                masterwork: 0
+            }),
+            med_base_dmg: "",
+            enhancements: new ObservantArray(),
+            base_dmg: "",
+            critical: "",
+            range: "",
+            misfire: "",
+            capacity: "",
+            weight: 0,
+            type: "",
+            special: new ObservantArray(),
+            source: "",
+            category: "",
+            proficiency: "",
+            masterwork: false,
+            touch: false,
+            size: "Medium"
+        };
+        
+        var WpnUpdaters = {
+            base_dmg: function(deps) {
+                var size = "";
+                var med_base_dmg = "";
+                
+                var sizes = ["medium", "small", "tiny", "large"];
+                var damage_chart = {
+                    "1d2":  {tiny: "0",    small: "1",    medium: "1d2",  large:"1d3"},
+                    "1d3":  {tiny: "1",    small: "1d2",  medium: "1d3",  large:"1d4"},
+                    "1d4":  {tiny: "1d2",  small: "1d3",  medium: "1d4",  large:"1d6"},
+                    "1d6":  {tiny: "1d3",  small: "1d4",  medium: "1d6",  large:"1d8"},
+                    "1d8":  {tiny: "1d4",  small: "1d6",  medium: "1d8",  large:"2d6"},
+                    "1d10": {tiny: "1d6",  small: "1d8",  medium: "1d10", large:"2d8"},
+                    "1d12": {tiny: "1d8",  small: "1d10", medium: "1d12", large:"3d6"},
+                    "2d4":  {tiny: "1d4",  small: "1d6",  medium: "2d4",  large:"2d6"},
+                    "2d6":  {tiny: "1d8",  small: "1d10", medium: "2d6",  large:"3d6"},
+                    "2d8":  {tiny: "1d10", small: "2d6",  medium: "2d8",  large:"3d8"},
+                    "2d10": {tiny: "2d6",  small: "2d8",  medium: "2d10", large:"4d8"}
+                }
+                for (var key in deps) {
+                    var dep = deps[key].toLowerCase();
+                    if (typeof dep == "string") {
+                        if (Object.keys(damage_chart).indexOf(dep) != -1) {
+                            var med_base_dmg = dep;
+                        }
+                        if (sizes.indexOf(dep) != -1) {
+                            var size = dep;
+                        }
+                    }
+                }
+                if (size &amp;&amp; med_base_dmg) {
+                    return damage_chart[med_base_dmg][size];
+                }
+                else {
+                    return "-";
+                }
+            }
+        }
+        
+        angular.extend(Wpn, template);
+        angular.extend(WpnUpdaters, updaters);
+        
+        Data.call(this, Wpn, WpnUpdaters, dependencies);
+        
+        this.bonuses.___.masterwork.update = function(dependencies) {
+            var bonus = false;
+            for (var i = 0; i &lt; dependencies.length; i++) {
+                bonus = (dependencies[i]? !bonus : bonus); // Crude XOR
+                // If masterwork (true) AND enhanced (>0), bonus is false
+                // If masterwork (true) AND NOT enhanced (=0) bonus is true
+                // If not masterwork (false) AND NOT enhanced (=0) bonus is true
+            }
+            return (bonus ? 1 : 0);
+        }
+        this.bonuses.dependBatch({
+            "masterwork":   [{obj: this,            property: "masterwork"},
+                             {obj: this.bonuses,    property: "enhancement"}]
+        });
+        this.dependBatch({
+            "base_dmg": [{obj: this, property: "med_base_dmg"},
+                         {obj: this, property: "size"}]
+        });
+    }
+    
+    // Inheritance from Data:
+    Weapon.prototype = Object.create(Data.prototype);
+    Weapon.prototype.constructor = Weapon;
+    
+    return Weapon;
+});
+
+csheetApp.factory("Attack", function(Data, Bonus, xsignFilter) {
+    // Attack
+    //  -- has Weapon
+    //  -- has Ability Modifier
+    //  -- 
+    function Attack(template, updaters, dependencies) {
+        // Weapon is stored by value - a clone of the original object
+        // Eventually this clone will actually be stored in Gear, and
+        // the weapon here will reference that.
+        var newAttack = {
+            weapon: undefined,
+            ability: undefined,
+            bab: undefined,
+            damage: "",
+            atkbonus: "",
+            fullatk: "",
+            type: "",
+            touch: false
+        };
+        var newUpdaters = {
+            fullatk: function(dep) {
+                var newValue = "";
+                var babAttacks = "";
+                var bonus = 0;
+                var totalAttacks = [];
+                for (var i = 0; i &lt; dep.length; i++) {
+                    if (typeof dep[i] == "string" &amp;&amp; dep[i].indexOf("/") != -1) {
+                        // BAB attacks string
+                        babAttacks = dep[i];
+                    }
+                    else {
+                        // Attack bonus(es)
+                        bonus += +dep[i];
+                    }
+                }
+                var babAttacks = babAttacks.split("/");
+                for (var j in babAttacks) {
+                    totalAttacks.push(xsignFilter(+babAttacks[j] + bonus));
+                }
+                newValue = totalAttacks.join("/");
+                return newValue;
+            },
+            damage: function(dep) {
+                var total = "";
+                for (var i = 0; i &lt; dep.length; i++) {
+                    total += dep[i];
+                }
+                return total;
+            }
+        };
+        
+        angular.extend(newAttack, template);
+        angular.extend(newUpdaters, updaters);
+        
+        Data.call(this, newAttack, newUpdaters, dependencies)
+        
+        this.dependBatch({
+            atkbonus:   [{obj: this.weapon.bonuses,    property: "proficiency"},
+                         {obj: this.weapon.bonuses,    property: "masterwork"},
+                         {obj: this.weapon.bonuses,    property: "enhancement"},
+                         {obj: this.ability,           property: "ability_mod"}],
+            fullatk:    [{obj: this,           property: "atkbonus"},
+                         {obj: this.bab,       property: "attacks"}],
+            damage:     [{obj: this.weapon,    property: "base_dmg"}]
+        })
+    }
+    
+    // Inheritance from Data:
+    Attack.prototype = Object.create(Data.prototype);
+    Attack.prototype.constructor = Attack;
+    
+    return Attack;
+});
+
+csheetApp.factory("WeaponLib", function($http, Data, Weapon) {
+    function WeaponLib(source, callback) {
+        var that = this;
+        this.list = {error: "Not loaded yet"};
+        $http.get(source).
+            then(function(response) {
+                var weaponsfile = $.csv.toObjects(response.data);
+                var newlist = {};
+                for (var i = 0; i &lt; weaponsfile.length; i++) {
+                    var wpn = new Weapon({
+                        name: weaponsfile[i].weapon,
+                        med_base_dmg: weaponsfile[i].base_dmg,
+                        critical: weaponsfile[i].critical,
+                        range: weaponsfile[i].range,
+                        weight: weaponsfile[i].weight,
+                        type: weaponsfile[i].type,
+                        category: weaponsfile[i].category,
+                        misfire: weaponsfile[i].misfire,
+                        touch: false,
+                        proficiency: weaponsfile[i].proficiency
+                    });
+                    
+                    newlist[weaponsfile[i].weapon_id] = wpn;
+                }
+                that.list = new Data(newlist);
+                callback();
+            });
+        return this;
+    }
+    return WeaponLib;
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Bonus.html">Bonus</a></li><li><a href="Data.html">Data</a></li><li><a href="Field.html">Field</a></li><li><a href="Weapon.html">Weapon</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Fri Sep 18 2015 22:50:46 GMT+0000 (UTC)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

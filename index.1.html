@@ -1,0 +1,889 @@
+<html ng-app="csheetApp">
+    <head>
+        <title>Demo Character Sheet</title>
+        <link href='https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/charactersheet-default.min.css?v=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+        <script type="text/javascript" src="js/controller.js"></script>
+    </head>
+    <body ng-controller="csheetControl">
+        <div class="sheet page1">
+            <div class="section logo"></div>
+            <div class="section class-race">
+                <span class="name value">{{character.classrace.name}}</span>
+                <span class="alignment value">{{character.classrace.alignment}}</span>
+                <span class="player value">{{character.classrace.player}}</span>
+                <span class="classlevel value">{{character.classrace.classlevel}}</span>
+                <span class="deity value">{{character.classrace.deity}}</span>
+                <span class="homeland value">{{character.classrace.homeland}}</span>
+                <span class="race value">{{character.classrace.race}}</span>
+                <span class="size value">{{character.classrace.size}}</span>
+                <span class="gender value">{{character.classrace.gender}}</span>
+                <span class="age value">{{character.classrace.age}}</span>
+                <span class="height value">{{character.classrace.height}}</span>
+                <span class="weight value">{{character.classrace.weight}}</span>
+                <span class="hair value">{{character.classrace.hair}}</span>
+                <span class="eyes value">{{character.classrace.eyes}}</span>
+            </div>
+            <div class="section stats color-stat">
+                <div ng-repeat="(stat, data) in character.stats" class="stat {{stat}}">
+                    <span class="score field">{{data.score}}</span>
+                    <span class="mod field">{{data.mod}}</span>
+                    <span class="score-temp field">{{data.score_temp}}</span>
+                    <span class="mod-temp field">{{data.mod_temp}}</span>
+                </div>
+                <!--
+                <div class="stat str">
+                    <span class="score field">11</span>
+                    <span class="mod field">+0</span>
+                    <span class="score-temp field">&nbsp;</span>
+                    <span class="mod-temp field">&nbsp;</span>
+                </div>
+                <div class="stat dex">
+                    <span class="score field">20</span>
+                    <span class="mod field">+5</span>
+                    <span class="score-temp field">&nbsp;</span>
+                    <span class="mod-temp field">&nbsp;</span>
+                </div>
+                <div class="stat con">
+                    <span class="score field">14</span>
+                    <span class="mod field">+2</span>
+                    <span class="score-temp field">16</span>
+                    <span class="mod-temp field">+3</span>
+                </div>
+                <div class="stat int">
+                    <span class="score field">11</span>
+                    <span class="mod field">+0</span>
+                    <span class="score-temp field">&nbsp;</span>
+                    <span class="mod-temp field">&nbsp;</span>
+                </div>
+                <div class="stat wis">
+                    <span class="score field">10</span>
+                    <span class="mod field">+0</span>
+                    <span class="score-temp field">&nbsp;</span>
+                    <span class="mod-temp field">&nbsp;</span>
+                </div>
+                <div class="stat cha">
+                    <span class="score field">18</span>
+                    <span class="mod field">+4</span>
+                    <span class="score-temp field">&nbsp;</span>
+                    <span class="mod-temp field">&nbsp;</span>
+                </div>
+                -->
+            </div>
+            <div class="section hitpoints color-def">
+                <span class="total-hp field">82</span>
+                <span class="dr field">&nbsp;</span>
+                <span class="current-hp field">&nbsp;</span>
+                <span class="nonlethal-hp field">&nbsp;</span>
+            </div>
+            <div class="section speeds">
+                <div class="line1">
+                    <span class="base speed field">
+                        <span class="base speed ft">30</span>
+                        <span class="base speed sq">6</span>
+                    </span>
+                    <span class="armor speed field">
+                        <span class="armor speed ft">30</span>
+                        <span class="armor speed sq">6</span>
+                    </span>
+                </div>
+                <div class="line2">
+                    <span class="fly speed field">
+                        <span class="fly speed ft">120</span>
+                        <span class="fly speed sq">24</span>
+                    </span>
+                    <span class="swim speed field">20</span>
+                    <span class="climb speed field">20</span>
+                    <span class="burrow speed field">10</span>
+                </div>
+                <span class="temp field"></span>
+            </div>
+            <div class="section skills color-atk">
+                <div class="skill acrobatics">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill appraise">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill bluff">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill climb">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill craft1">
+                    <span class="class-skill">x</span>
+                    <span class="subskill field">Alchemy</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill craft1">
+                    <span class="class-skill">x</span>
+                    <span class="subskill field">Magic Items</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill craft1">
+                    <span class="class-skill">x</span>
+                    <span class="subskill field">Magic Weapons and Armor</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill diplomacy">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disabledevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disguise">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill escapeartist">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill fly">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill handleanimal">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill heal">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill intimidate">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disabledevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disabledevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disabledevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disabledevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disabledevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disabledevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disabledevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disabledevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disabledevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disabledevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disabledevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill perception">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill perform1">
+                    <span class="class-skill">x</span>
+                    <span class="subskill field">Oratory</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill perform2">
+                    <span class="class-skill">x</span>
+                    <span class="subskill field">Strings</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill profession1">
+                    <span class="class-skill">x</span>
+                    <span class="subskill field">Driving</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill profession2">
+                    <span class="class-skill">x</span>
+                    <span class="subskill field">Baking</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill ride">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill disabledevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill sleightofhand">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill spellcraft">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill stealth">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill survival">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill swim">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="skill usemagicdevice">
+                    <span class="class-skill">x</span>
+                    <span class="total field">+12</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="ranks field">+4</span>
+                    <span class="misc field">&nbsp;</span>
+                </div>
+                <div class="modifiers">
+                    +2 perception (bright light), +2 spellcraft (identify magic items), +2 perception (trapfinding), +2 disable device (traps)
+                </div>
+            </div>
+            <div class="section initiative color-atk">
+                <span class="total field">+5</span>
+                <span class="dex field color-stat">+5</span>
+                <span class="misc field">+0</span>
+            </div>
+            <div class="section armorclass color-def">
+                <span class="total field">20</span>
+                <span class="armor field">+4</span>
+                <span class="shield field">&nbsp;</span>
+                <span class="dex field color-stat">+5</span>
+                <span class="size field color-stat">&nbsp;</span>
+                <span class="natarmor field">&nbsp;</span>
+                <span class="deflect field">&nbsp;</span>
+                <span class="misc field">+1</span>
+                
+                <span class="touch field">16</span>
+                <span class="flat field">20</span>
+                <span class="other field">&nbsp;</span>
+            </div>
+            <div class="section savingthrows color-def">
+                <div class="save fortitude">
+                    <span class="total field">+4</span>
+                    <span class="base field">+2</span>
+                    <span class="ability field color-stat">+2</span>
+                    <span class="magic field">&nbsp;</span>
+                    <span class="misc field">&nbsp;</span>
+                    <span class="temp field">&nbsp;</span>
+                </div>
+                <div class="save reflex">
+                    <span class="total field">+11</span>
+                    <span class="base field">+6</span>
+                    <span class="ability field color-stat">+5</span>
+                    <span class="magic field">&nbsp;</span>
+                    <span class="misc field">&nbsp;</span>
+                    <span class="temp field">&nbsp;</span>
+                </div>
+                <div class="save will">
+                    <span class="total field">+2</span>
+                    <span class="base field">+2</span>
+                    <span class="ability field color-stat">+0</span>
+                    <span class="magic field">&nbsp;</span>
+                    <span class="misc field">&nbsp;</span>
+                    <span class="temp field">&nbsp;</span>
+                </div>
+                <div class="mod field"></div>
+            </div>
+            <div class="section baseattack color-atk">
+                <span class="total field">+6/+1</span>
+            </div>
+            <div class="section spellresistance color-magic">
+                <span class="total field">12</span>
+            </div>
+            <div class="section cmb color-atk">
+                <span class="total field">+6</span>
+                <span class="bab field">+6</span>
+                <span class="str field color-stat">+0</span>
+                <span class="size field">&nbsp;</span>
+                <span class="other field"></span>
+            </div>
+            <div class="section cmd color-def">
+                <span class="total field">20</span>
+                <span class="bab field color-atk">+6</span>
+                <span class="str field color-stat">+0</span>
+                <span class="dex field color-stat">+5</span>
+                <span class="size field">&nbsp;</span>
+            </div>
+            <div class="section attacks color-atk">
+                <div class="attack melee">
+                    <span class="weapon field">Daggers</span>
+                    <span class="type field">P/S</span>
+                    <span class="bonus field">+11/+11/+6/+6</span>
+                    <span class="critical field">19-20</span>
+                    <span class="damage field">1d4 (+1d6 acid)</span>
+                </div>
+                <div class="attack melee">
+                    <span class="weapon field">Daggers</span>
+                    <span class="type field">P/S</span>
+                    <span class="bonus field">+11/+11/+6/+6</span>
+                    <span class="critical field">19-20</span>
+                    <span class="damage field">1d4 (+1d6 acid)</span>
+                </div>
+                <div class="attack ranged">
+                    <span class="weapon field">Shortbow</span>
+                    <span class="type field">P</span>
+                    <span class="range field">60ft</span>
+                    <span class="ammunition field">Arrows (Lots and Lots of Arrows)</span>
+                    <span class="bonus field">+11/+6</span>
+                    <span class="critical field">x3</span>
+                    <span class="damage field">1d6</span>
+                </div>
+                <div class="attack ranged">
+                    <span class="weapon field">Shortbow</span>
+                    <span class="type field">P</span>
+                    <span class="range field">60ft</span>
+                    <span class="ammunition field">Arrows</span>
+                    <span class="bonus field">+11/+6</span>
+                    <span class="critical field">x3</span>
+                    <span class="damage field">1d6</span>
+                </div>
+            </div>
+            <div class="section languages">
+                Common, Goblin, <br/>Elven, Draconic
+            </div>
+        </div>
+        <div class="sheet page2">
+            <div class="section acitems color-def">
+                <div class="acitem">
+                    <span class="item field">Leather Armor</span>
+                    <span class="bonus field">+3</span>
+                    <span class="type field">Light</span>
+                    <span class="check field color-atk">0</span>
+                    <span class="spellfailure field color-magic">15%</span>
+                    <span class="weight field"></span>
+                    <span class="properties field"></span>
+                </div>
+                <div class="acitem">
+                    <span class="item field">Armor Belt</span>
+                    <span class="bonus field">+3</span>
+                    <span class="type field">Light</span>
+                    <span class="check field color-atk">-1</span>
+                    <span class="spellfailure field color-magic">15%</span>
+                    <span class="weight field"></span>
+                    <span class="properties field"></span>
+                </div>
+                <div class="acitem totals">
+                    <span class="bonus field">+6</span>
+                    <span class="type field">Light</span>
+                    <span class="check field color-atk">-1</span>
+                    <span class="spellfailure field color-magic">30%</span>
+                    <span class="weight field"></span>
+                    <span class="properties field"></span>
+                </div>
+            </div>
+            <div class="section gear">
+                <div class="item">
+                    <span class="name field">Hat of Disguise</span>
+                    <span class="type field">Wondrous Item</span>
+                    <span class="location field">Head</span>
+                    <span class="description field">This is a Hat of Disguise!</span>
+                    <span class="weight field">5</span>
+                    <span class="value field">&nbsp;</span>
+                </div>
+                <div class="item">
+                    <span class="name field">Pail</span>
+                    <span class="type field">Item</span>
+                    <span class="location field">&nbsp;</span>
+                    <span class="description field">&nbsp;</span>
+                    <span class="weight field">10</span>
+                    <span class="value field">&nbsp;</span>
+                </div>
+                <div class="encumbrance">
+                    <span class="weight field">15</span>
+                    <span class="light load field">100</span>
+                    <span class="medium load field">100</span>
+                    <span class="heavy load field">100</span>
+                    <span class="light lift field">100</span>
+                    <span class="medium lift field">100</span>
+                    <span class="heavy lift field">100</span>
+                </div>
+                <div class="money color-money">
+                    <span class="coins copper">1</span>
+                    <span class="coins silver">10</span>
+                    <span class="coins gold">100</span>
+                    <span class="coins platinum">1000</span>
+                </div>
+            </div>
+            <div class="section feats">
+                <div class="feat">
+                    <span class="type field">Combat</span>
+                    <span class="sdesc field">Weapon Finesse</span>
+                    <span class="prereqs field">14 Dex</span>
+                    <span class="description field">With a light weapon, elven curve blade, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.</span>
+                </div>
+                <div class="feat">
+                    <span class="type field">Item Creation</span>
+                    <span class="sdesc field">Weapon Focus (Dagger)</span>
+                    <span class="prereqs field">Proficiency (Dagger)</span>
+                    <span class="description field">With a light weapon, elven curve blade, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.</span>
+                </div>
+                <div class="feat">
+                    <span class="type field">General</span>
+                    <span class="sdesc field">Extra Dexterity</span>
+                    <span class="prereqs field">14 Dex</span>
+                    <span class="description">With a light weapon, elven curve blade, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.</span>
+                </div>
+            </div>
+            <div class="section abilities">
+                <div class="ability">
+                    <span class="type field">Sp</span>
+                    <span class="sdesc field">Magic Missile</span>
+                    <span class="uses field">3/day OOO</span>
+                    <span class="description field">A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.</span>
+                    <div class="spellcard">
+                        <span class="level">1</span>
+                        <span class="school">Evocation</span>
+                        <span class="subtype">force</span>
+                        <span class="castingtime">1 standard action</span>
+                        <span class="components">V, S</span>
+                        <span class="range">Medium (180 ft)</span>
+                        <span class="targets">Up to 5 creatures, no two of which can be more than 15 feet apart</span>
+                        <span class="duration">Instantaneous</span>
+                        <span class="savingthrow">None</span>
+                        <span class="sr">Yes</span>
+                        <span class="description">A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.</span>
+                    </div>
+                </div>
+                <div class="ability">
+                    <span class="type field">Su</span>
+                    <span class="sdesc field">Ki Pool</span>
+                    <span class="uses field">12/day OOOOOOOOOOOO</span>
+                    <span class="description field">At 2nd level, a ninja gains a pool of ki points, supernatural energy she can use to accomplish amazing feats.</span>
+                </div>
+                <div class="ability">
+                    <span class="type field">Ex</span>
+                    <span class="sdesc field">Uncanny Dodge</span>
+                    <span class="description field">Starting at 4th level, a ninja can react to danger before her senses would normally allow her to do so.</span>
+                </div>
+            </div>
+            <div class="section xp">
+                <span class="total field">105,000</span>
+                <span class="nextlevel field">155,000</span>
+            </div>
+            <div class="section spells color-magic">
+                <div class="spellstats">
+                    <div class="level zero">
+                        <span class="known field">4</span>
+                        <span class="savedc field">16</span>
+                        <span class="perday field">4+1</span>
+                        <span class="bonus field">&nbsp;</span>
+                    </div>
+                    <div class="level one">
+                        <span class="known field">4</span>
+                        <span class="savedc field">16</span>
+                        <span class="perday field">4+1</span>
+                        <span class="bonus field">&nbsp;</span>
+                    </div>
+                    <div class="level two">
+                        <span class="known field">4</span>
+                        <span class="savedc field">16</span>
+                        <span class="perday field">4+1</span>
+                        <span class="bonus field">1</span>
+                    </div>
+                    <div class="level three">
+                        <span class="known field">4</span>
+                        <span class="savedc field">16</span>
+                        <span class="perday field">4+1</span>
+                        <span class="bonus field">1</span>
+                    </div>
+                    <div class="level four">
+                        <span class="known field">4</span>
+                        <span class="savedc field">16</span>
+                        <span class="perday field">4+1</span>
+                        <span class="bonus field">&nbsp;</span>
+                    </div>
+                    <div class="level five">
+                        <span class="known field">4</span>
+                        <span class="savedc field">16</span>
+                        <span class="perday field">4+1</span>
+                        <span class="bonus field">&nbsp;</span>
+                    </div>
+                    <div class="level six">
+                        <span class="known field">4</span>
+                        <span class="savedc field">16</span>
+                        <span class="perday field">4+1</span>
+                        <span class="bonus field">&nbsp;</span>
+                    </div>
+                    <div class="level seven">
+                        <span class="known field">4</span>
+                        <span class="savedc field">16</span>
+                        <span class="perday field">4+1</span>
+                        <span class="bonus field">&nbsp;</span>
+                    </div>
+                    <div class="level eight">
+                        <span class="known field">4</span>
+                        <span class="savedc field">16</span>
+                        <span class="perday field">4+1</span>
+                        <span class="bonus field">&nbsp;</span>
+                    </div>
+                    <div class="level nine">
+                        <span class="known field">4</span>
+                        <span class="savedc field">16</span>
+                        <span class="perday field">4+1</span>
+                        <span class="bonus field">&nbsp;</span>
+                    </div>
+                    <div class="modifiers">
+                        +2 on language-based mind-affecting spells
+                    </div>
+                    <div class="schools">
+                        <span class="school">Resurrection</span>
+                        <span class="school">Glory</span>
+                    </div>
+                </div>
+                <div class="levels">
+                    <div class="level zero">
+                        <div class="spell">
+                            <span class="name field">Magic Missile</span>
+                            <div class="spellcard">
+                                <span class="level">1</span>
+                                <span class="school">Evocation</span>
+                                <span class="subtype">force</span>
+                                <span class="castingtime">1 standard action</span>
+                                <span class="components">V, S</span>
+                                <span class="range">Medium (180 ft)</span>
+                                <span class="targets">Up to 5 creatures, no two of which can be more than 15 feet apart</span>
+                                <span class="duration">Instantaneous</span>
+                                <span class="savingthrow">None</span>
+                                <span class="sr">Yes</span>
+                                <span class="description">A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.</span>
+                            </div>
+                        </div>
+                        <div class="spell">
+                            <span class="name field">Ray of Frost</span>
+                            <div class="spellcard">
+                                <span class="level">1</span>
+                                <span class="school">Evocation</span>
+                                <span class="subtype">force</span>
+                                <span class="castingtime">1 standard action</span>
+                                <span class="components">V, S</span>
+                                <span class="range">Medium (180 ft)</span>
+                                <span class="targets">Up to 5 creatures, no two of which can be more than 15 feet apart</span>
+                                <span class="duration">Instantaneous</span>
+                                <span class="savingthrow">None</span>
+                                <span class="sr">Yes</span>
+                                <span class="description">A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level one">
+                        <div class="spell">
+                            <span class="name field">Magic Missile</span>
+                            <div class="spellcard">
+                                <span class="level">1</span>
+                                <span class="school">Evocation</span>
+                                <span class="subtype">force</span>
+                                <span class="castingtime">1 standard action</span>
+                                <span class="components">V, S</span>
+                                <span class="range">Medium (180 ft)</span>
+                                <span class="targets">Up to 5 creatures, no two of which can be more than 15 feet apart</span>
+                                <span class="duration">Instantaneous</span>
+                                <span class="savingthrow">None</span>
+                                <span class="sr">Yes</span>
+                                <span class="description">A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="level two">
+                        <div class="spell">
+                            <span class="name field">Magic Missile</span>
+                            <div class="spellcard">
+                                <span class="level">1</span>
+                                <span class="school">Evocation</span>
+                                <span class="subtype">force</span>
+                                <span class="castingtime">1 standard action</span>
+                                <span class="components">V, S</span>
+                                <span class="range">Medium (180 ft)</span>
+                                <span class="targets">Up to 5 creatures, no two of which can be more than 15 feet apart</span>
+                                <span class="duration">Instantaneous</span>
+                                <span class="savingthrow">None</span>
+                                <span class="sr">Yes</span>
+                                <span class="description">A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="level three">
+                        <div class="spell">
+                            <span class="name field">Magic Missile</span>
+                            <div class="spellcard">
+                                <span class="level">1</span>
+                                <span class="school">Evocation</span>
+                                <span class="subtype">force</span>
+                                <span class="castingtime">1 standard action</span>
+                                <span class="components">V, S</span>
+                                <span class="range">Medium (180 ft)</span>
+                                <span class="targets">Up to 5 creatures, no two of which can be more than 15 feet apart</span>
+                                <span class="duration">Instantaneous</span>
+                                <span class="savingthrow">None</span>
+                                <span class="sr">Yes</span>
+                                <span class="description">A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="level four">
+                        <div class="spell">
+                            <span class="name field">Magic Missile</span>
+                            <div class="spellcard">
+                                <span class="level">1</span>
+                                <span class="school">Evocation</span>
+                                <span class="subtype">force</span>
+                                <span class="castingtime">1 standard action</span>
+                                <span class="components">V, S</span>
+                                <span class="range">Medium (180 ft)</span>
+                                <span class="targets">Up to 5 creatures, no two of which can be more than 15 feet apart</span>
+                                <span class="duration">Instantaneous</span>
+                                <span class="savingthrow">None</span>
+                                <span class="sr">Yes</span>
+                                <span class="description">A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="level five">
+                        <div class="spell">
+                            <span class="name field">Magic Missile</span>
+                            <div class="spellcard">
+                                <span class="level">1</span>
+                                <span class="school">Evocation</span>
+                                <span class="subtype">force</span>
+                                <span class="castingtime">1 standard action</span>
+                                <span class="components">V, S</span>
+                                <span class="range">Medium (180 ft)</span>
+                                <span class="targets">Up to 5 creatures, no two of which can be more than 15 feet apart</span>
+                                <span class="duration">Instantaneous</span>
+                                <span class="savingthrow">None</span>
+                                <span class="sr">Yes</span>
+                                <span class="description">A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="level six">
+                        <div class="spell">
+                            <span class="name field">Magic Missile</span>
+                            <div class="spellcard">
+                                <span class="level">1</span>
+                                <span class="school">Evocation</span>
+                                <span class="subtype">force</span>
+                                <span class="castingtime">1 standard action</span>
+                                <span class="components">V, S</span>
+                                <span class="range">Medium (180 ft)</span>
+                                <span class="targets">Up to 5 creatures, no two of which can be more than 15 feet apart</span>
+                                <span class="duration">Instantaneous</span>
+                                <span class="savingthrow">None</span>
+                                <span class="sr">Yes</span>
+                                <span class="description">A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="level seven">
+                        <div class="spell">
+                            <span class="name field">Magic Missile</span>
+                            <div class="spellcard">
+                                <span class="level">1</span>
+                                <span class="school">Evocation</span>
+                                <span class="subtype">force</span>
+                                <span class="castingtime">1 standard action</span>
+                                <span class="components">V, S</span>
+                                <span class="range">Medium (180 ft)</span>
+                                <span class="targets">Up to 5 creatures, no two of which can be more than 15 feet apart</span>
+                                <span class="duration">Instantaneous</span>
+                                <span class="savingthrow">None</span>
+                                <span class="sr">Yes</span>
+                                <span class="description">A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="level eight">
+                        <div class="spell">
+                            <span class="name field">Magic Missile</span>
+                            <div class="spellcard">
+                                <span class="level">1</span>
+                                <span class="school">Evocation</span>
+                                <span class="subtype">force</span>
+                                <span class="castingtime">1 standard action</span>
+                                <span class="components">V, S</span>
+                                <span class="range">Medium (180 ft)</span>
+                                <span class="targets">Up to 5 creatures, no two of which can be more than 15 feet apart</span>
+                                <span class="duration">Instantaneous</span>
+                                <span class="savingthrow">None</span>
+                                <span class="sr">Yes</span>
+                                <span class="description">A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="level nine">
+                        <div class="spell">
+                            <span class="name field">Magic Missile</span>
+                            <div class="spellcard">
+                                <span class="level">1</span>
+                                <span class="school">Evocation</span>
+                                <span class="subtype">force</span>
+                                <span class="castingtime">1 standard action</span>
+                                <span class="components">V, S</span>
+                                <span class="range">Medium (180 ft)</span>
+                                <span class="targets">Up to 5 creatures, no two of which can be more than 15 feet apart</span>
+                                <span class="duration">Instantaneous</span>
+                                <span class="savingthrow">None</span>
+                                <span class="sr">Yes</span>
+                                <span class="description">A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

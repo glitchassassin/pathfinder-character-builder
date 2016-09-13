@@ -1,0 +1,13 @@
+damage_chart = {
+    "1d2": {small: "1", tiny: "0" , large:"1d3"}
+    "1d3": {small: "1d2", tiny: "1", large:"1d4"}
+    "1d4": {small: "1d3", tiny: "1d2", large:"1d6"}
+    "1d6": {small: "1d4", tiny: "1d3", large:"1d8"}
+    "1d8": {small: "1d6", tiny: "1d4", large:"2d6"}
+    "1d10": {small: "1d8", tiny: "1d6", large:"2d8"}
+    "1d12": {small: "1d10", tiny: "1d8", large:"3d6"}
+    "2d4": {small: "1d6", tiny: "1d4", large:"2d6"}
+    "2d6": {small: "1d10", tiny: "1d8", large:"3d6"}
+    "2d8": {small: "2d6", tiny: "1d10", large:"3d8"}
+    "2d10": {small: "2d8", tiny: "2d6", large:"4d8"}
+}

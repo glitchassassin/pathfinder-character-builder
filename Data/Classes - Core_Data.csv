@@ -1,0 +1,13 @@
+class_id,class_name,hit_dice,bab,fort,ref,will,skill_points,spells_per_day,spells_known,class_skills
+barbarian,Barbarian,d12,1,good,bad,bad,4,none,none,"acrobatics,climb,craft,handleanimal,intimidate,knature,perception,ride,survival,swim"
+bard,Bard,d8,3/4,bad,good,good,6,bard,bard,"acrobatics,appraise,bluff,climb,craft,diplomacy,disguise,escapeartist,intimidate,karcana,kdungeoneering,kengineering,kgeography,khistory,klocal,knature,knobility,kplanes,kreligion,linguistics,perception,perform,profession,sensemotive,sleightofhand,spellcraft,stealth,usemagicdevice"
+cleric,Cleric,d8,3/4,good,bad,good,2,cleric,cleric,"appraise,craft,diplomacy,heal,karcana,khistory,knobility,kplanes,kreligion,linguistics,profession,sensemotive,spellcraft"
+druid,Druid,d8,3/4,good,bad,good,4,wizard,druid,"climb,craft,fly,handleanimal,heal,kgeography,knature,perception,profession,ride,spellcraft,survival,swim"
+fighter,Fighter,d10,1,good,bad,bad,2,none,none,"climb,craft,handleanimal,intimidate,kdungeoneering,kengineering,profession,ride,survival,swim"
+monk,Monk,d8,3/4,good,good,good,4,none,none,"acrobatics,climb,craft,escapeartist,intimidate,khistory,kreligion,perception,perform,profession,ride,sensemotive,stealth,swim"
+paladin,Paladin,d10,1,good,bad,good,2,ranger,paladin,"craft,diplomacy,handleanimal,heal,knobility,kreligion,profession,ride,sensemotive,spellcraft"
+ranger,Ranger,d10,1,good,good,bad,6,ranger,ranger,"climb,craft,handleanimal,heal,intimidate,kdungeoneering,kgeography,knature,perception,profession,ride,spellcraft,stealth,survival,swim"
+rogue,Rogue,d8,3/4,bad,good,bad,8,none,none,"acrobatics,appraise,bluff,climb,craft,diplomacy,disabledevice,disguise,escapeartist,intimidate,kdungeoneering,klocal,linguistics,perception,perform,profession,sensemotive,sleightofhand,stealth,swim,usemagicdevice"
+sorcerer,Sorcerer,d6,1/2,bad,bad,good,2,sorcerer,sorcerer,"appraise,bluff,craft,fly,intimidate,karcana,profession,spellcraft,usemagicdevice"
+wizard,Wizard,d6,1/2,bad,bad,good,2,wizard,wizard,"appraise,craft,fly,karcana,kdungeoneering,kengineering,kgeography,khistory,klocal,knature,knobility,kplanes,kreligion,linguistics,profession,spellcraft"
+kineticist,Kineticist,d8,3/4,good,good,bad,4,none,none,"acrobatics,craft,heal,intimidate,perception,profession,stealth,usemagicdevice"

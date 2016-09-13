@@ -1,0 +1,93 @@
+/*
+ * Stats Dialog
+ */
+.stats-dialog {
+    width: 600px;
+}
+.stats-dialog input {
+    font-family: 'IM Fell French Canon SC', 'Times New Roman';
+    font-weight: bold;
+}
+.stats-dialog .tab-manual .column.stat-setter {
+    text-align: left;
+    padding-top: 3px;
+}
+.stats-dialog .tab-manual label {
+    display: inline-block;
+    width: 50px;
+}
+.stats-dialog .tab-manual .column {
+    display: inline-block;
+    text-align: center;
+    width: 32%;
+}
+.stats-dialog .tab-manual .column label {
+    font-size: 20px;
+}
+.stats-dialog .tab-manual .column.header {
+    font-size: 14px;
+    font-weight: bold;
+}
+.stats-dialog .tab-manual .column.racial {
+    font-size: 20px;
+    font-weight: bold;
+}
+.stats-dialog .tab-manual .column.total {
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+}
+.stats-dialog .tab-manual .column.total label {
+    padding-left: 50px;
+}
+
+/*
+ * Classrace Dialog
+ */
+
+.classrace-dialog {
+    width: 800px;
+}
+.classrace-dialog .select-alignment {
+    width: 150px;
+}
+.classrace-dialog .select-size {
+    width: 120px;
+}
+.classrace-dialog input {
+    font-family: 'IM Fell French Canon SC', 'Times New Roman';
+    font-weight: bold;
+}
+.classrace-dialog .tab-details md-input-container {
+    margin-bottom: 0px;
+}
+.classrace-dialog .tab-class .deity-alignment md-input-container {
+    margin-bottom: 0px;
+}
+.classrace-dialog .tab-class .class-list {
+    width: 100%;
+}
+.classrace-dialog .tab-class .class-list .level_id {
+    width: 20px;
+}
+.classrace-dialog .tab-class .class-list .level_name {
+    width: 200px;
+}
+.classrace-dialog .tab-class .class-list .level_hp {
+    width: 75px;
+    text-align: left;
+}
+.classrace-dialog .tab-class .class-list .level_hp .hp {
+    width: 30px;
+    color: #080;
+    text-align: left;
+    padding: 0 5px;
+}
+.classrace-dialog .tab-class .class-list .level_skillpoints {
+    width: 125px;
+    text-align: right;
+}
+.classrace-dialog .tab-class .class-list .level_skillpoints .sp {
+    width: 30px;
+    color: #800;
+}

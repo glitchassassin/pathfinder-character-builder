@@ -1,0 +1,137 @@
+<md-dialog aria-label="CLASS LEVEL" ng-cloak class="classrace-dialog">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>CLASS LEVEL</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Details">
+          <md-content class="md-padding tab-details">
+            <div layout="row">
+              <md-input-container flex>
+                <label>Name</label>
+                <input ng-model="classrace.name">
+              </md-input-container>
+              <md-input-container flex>
+                <label>Player</label>
+                <input ng-model="classrace.player">
+              </md-input-container>
+            </div>
+            <div layout="row">
+              <md-input-container flex>
+                <label>Homeland</label>
+                <input ng-model="classrace.homeland">
+              </md-input-container>
+              <md-input-container flex>
+                <label>Gender</label>
+                <input ng-model="classrace.gender">
+              </md-input-container>
+              <md-input-container flex>
+                <label>Age</label>
+                <input type="number" ng-model="classrace.age">
+              </md-input-container>
+            </div>
+            <div layout="row">
+              <md-input-container flex>
+                <label>Height</label>
+                <input ng-model="classrace.height">
+              </md-input-container>
+              <md-input-container flex>
+                <label>Weight</label>
+                <input ng-model="classrace.weight">
+              </md-input-container>
+              <md-input-container flex>
+                <label>Hair</label>
+                <input ng-model="classrace.hair">
+              </md-input-container>
+              <md-input-container flex>
+                <label>Eyes</label>
+                <input ng-model="classrace.eyes">
+              </md-input-container>
+            </div>
+          </md-content>
+        </md-tab>
+        <md-tab label="Race">
+          <md-content class="md-padding tab-race">
+            <div layout="row">
+              <md-input-container>
+                <label>Race</label>
+                <input ng-model="classrace.race">
+              </md-input-container>
+              <md-input-container>
+                <label>Size</label>
+                <md-select ng-model="classrace.size" class="select-size">
+                  <md-option ng-repeat="size in sizes" value="{{size}}">{{size}}</md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </md-content>
+        </md-tab>
+        <md-tab label="Class">
+          <md-content class="md-padding tab-class">
+            <div layout="row" class="deity-alignment">
+              <md-input-container>
+                <label>Favored Class</label>
+                <md-select ng-model="classrace.class_levels.favored_class" class="select-favored-class">
+                  <md-option ng-repeat="pf_class in classes" value="{{pf_class.class_id}}">{{pf_class.name}}</md-option>
+                </md-select>
+              </md-input-container>
+              <span flex></span>
+              <md-input-container>
+                <label>Alignment</label>
+                <md-select ng-model="classrace.alignment" class="select-alignment">
+                  <md-option ng-repeat="alignment in alignments" value="{{alignment.id}}">{{alignment.name}}</md-option>
+                </md-select>
+              </md-input-container>
+              <md-input-container>
+                <label>Deity</label>
+                <input ng-model="classrace.deity">
+              </md-input-container>
+            </div>
+            <div layout="row">
+              <md-list class="class-list">
+                <md-subheader class="md-no-sticky">Class Levels</md-subheader>
+                <md-divider></md-divider>
+                <md-list-item ng-repeat="(id, level) in classrace.class_levels.levels">
+                  <span class="level_id">{{(+id + 1)}}.</span>
+                  <span class="level_name">{{ level.name }} ({{ level.class_level }})</span>
+                  <span class="level_hp"><span class="hp">{{ level.rolled_hp + classrace.class_levels.hp_bonus.valueOf() }} {{ classrace.class_levels.favored_class == level.pf_class.class_id && level.favored_class_selection == "hp" ? "+ " + level.favored_class_bonus.hp : "" }}</span> hp</span>
+                  <span class="level_skillpoints"><span class="sp">{{ level.skill_points + classrace.class_levels.skill_points_bonus.valueOf() }} {{ classrace.class_levels.favored_class == level.pf_class.class_id && level.favored_class_selection == "skill_point" ? "+ " + level.favored_class_bonus.skill_point : "" }}</span> skill points</span>
+                  <span flex></span>
+                  <md-button ng-click="edit_level(id)" class="">Edit</md-button>
+                  <md-divider></md-divider>
+                </md-list-item>
+                <md-list-item ng-if="classrace.class_levels.character_level < 20">
+                  <span flex></span>
+                  <md-button ng-click="add_level()" class="md-raised md-primary">Add Level...</md-button>
+                </md-list-item>
+              </md-list>
+            </div>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="debug()" class="md-raised md-warn">
+       Debug
+      </md-button>
+      <md-button ng-click="cancel()" class="md-raised">
+       Cancel
+      </md-button>
+      <md-button ng-click="save()" class="md-raised md-primary" style="margin-right:20px;">
+        Save
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

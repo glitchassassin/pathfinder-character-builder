@@ -1,0 +1,2383 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Documentation Class: Bonus</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Documentation</a>
+	</div>
+	<div class="navbar-collapse">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Bonus.html">Bonus</a></li><li><a href="Data.html">Data</a></li><li><a href="DependencyModifier.html">DependencyModifier</a></li><li><a href="Field.html">Field</a></li><li><a href="Weapon.html">Weapon</a></li><li><a href="WeaponAbility.html">WeaponAbility</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+</div>
+
+
+<div class="container">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+    		<h1 class="page-title">Class: Bonus</h1>
+			
+
+	<h1 class="page-title">Class: Bonus</h1>
+<section>
+
+<header>
+    
+        <h2>
+        Bonus
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+<dt>
+    <h4 class="name" id="Bonus"><span class="type-signature"></span>new Bonus<span class="signature">(template, <span class="optional">updaters</span>, <span class="optional">dependencies</span>)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>A special kind of pre-defined Data class which calculates its total value
+from its list of bonus types. Bonus objects can be added together, following
+the Pathfinder rules for which bonus types stack and which do not.</p>
+    </div>
+    
+
+    
+
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+		<th>Argument</th>
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>template</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Template object to copy properties from</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>updaters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>List of custom updater functions to apply to corresponding properties in template object (property names must match)</p></td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>dependencies</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>List of arrays of dependency links to establish (property names must match)</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<dt class="name" id="alchemical">
+    <h4><span class="type-signature"></span>alchemical<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>An <strong>ability bonus</strong> comes from the character's inherent ability
+score.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Attacks</li>
+     <li>Checks</li>
+     <li>Damage</li>
+     <li>Saves</li>
+     <li>Etc.</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="alchemical">
+    <h4><span class="type-signature"></span>alchemical<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>An <strong>alchemical bonus</strong> is granted by the use of a non-magical, 
+alchemical substance such as antitoxin.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Ability scores</li>
+     <li>Saves</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="armor">
+    <h4><span class="type-signature"></span>armor<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>An <strong>armor bonus</strong> applies to armor class and is granted by armor or 
+by a spell or magical effect that mimics armor. Armor bonuses stack 
+with all other bonuses to armor class (even with natural armor bonuses) 
+except other armor bonuses. An armor bonus doesn't apply against touch 
+attacks, except for armor bonuses granted by force effects (such as 
+the mage armor spell) which apply against incorporeal touch attacks, 
+such as that of a shadow.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>AC</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="baseattack">
+    <h4><span class="type-signature"></span>baseattack<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>Base Attack Bonus</strong> is a modifier added to your attack rolls. A 
+higher number means you're better at combat.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Attacks</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="circumstance">
+    <h4><span class="type-signature"></span>circumstance<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>circumstance bonus (or penalty)</strong> arises from specific conditional 
+factors impacting the success of the task at hand. Circumstance bonuses 
+stack with all other bonuses, including other circumstance bonuses, 
+unless they arise from essentially the same source.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Attacks</li>
+     <li>Checks</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="competence">
+    <h4><span class="type-signature"></span>competence<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>competence bonus (or penalty)</strong> affects a character's performance of 
+a particular task, as in the case of the bardic ability to inspire 
+competence. Such a bonus may apply on attack rolls, saving throws, 
+skill checks, caster level checks, or any other checks to which a 
+bonus relating to level or skill ranks would normally apply. It does 
+not apply on ability checks, damage rolls, initiative checks, or other 
+rolls that aren't related to a character's level or skill ranks. 
+Multiple competence bonuses don't stack; only the highest bonus applies.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Attacks</li>
+     <li>Checks</li>
+     <li>Saves</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="deflection">
+    <h4><span class="type-signature"></span>deflection<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>deflection bonus</strong> affects armor class and is granted by a spell or 
+magic effect that makes attacks veer off harmlessly. Deflection bonuses 
+stack with all other bonuses to AC except other deflection bonuses. A 
+deflection bonus applies against touch attacks.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>AC</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="dodge">
+    <h4><span class="type-signature"></span>dodge<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>dodge bonus</strong> improves armor class (and sometimes Reflex saves) 
+resulting from physical skill at avoiding blows and other ill effects. 
+Dodge bonuses are usually not granted by spells or magic items. 
+Any situation or effect (except wearing armor) that negates a character's 
+Dexterity bonus also negates any dodge bonuses the character may have. 
+Dodge bonuses stack with all other bonuses to AC, even other dodge 
+bonuses. Dodge bonuses apply against touch attacks.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>AC</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="enhancement">
+    <h4><span class="type-signature"></span>enhancement<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>An <strong>enhancement bonus</strong> represents an increase in the sturdiness and/or 
+effectiveness of armor or natural armor, or the effectiveness of a 
+weapon, or a general bonus to an ability score. Multiple enhancement 
+bonuses on the same object (in the case of armor and weapons), creature 
+(in the case of natural armor), or ability score do not stack. Only 
+the highest enhancement bonus applies. Since enhancement bonuses to 
+armor or natural armor effectively increase the armor or natural 
+armor's bonus to AC, they don't apply against touch attacks.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Ability scores</li>
+     <li>AC</li>
+     <li>Attacks</li>
+     <li>Damage</li>
+     <li>Speed</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="inherent">
+    <h4><span class="type-signature"></span>inherent<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Ability scores</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="insight">
+    <h4><span class="type-signature"></span>insight<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>An <strong>insight bonus</strong> improves performance of a given activity by 
+granting the character an almost precognitive knowledge of what might 
+occur. Multiple insight bonuses on the same character or object do 
+not stack. Only the highest insight bonus applies.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>AC</li>
+     <li>Attacks</li>
+     <li>Checks</li>
+     <li>Saves</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="luck">
+    <h4><span class="type-signature"></span>luck<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>luck bonus</strong> represents good (or bad) fortune. Multiple luck bonuses 
+on the same character or object do not stack. Only the highest luck 
+bonus applies.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>AC</li>
+     <li>Attacks</li>
+     <li>Checks</li>
+     <li>Damage</li>
+     <li>Saves</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="masterwork">
+    <h4><span class="type-signature"></span>masterwork<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>masterwork weapon</strong> is a finely crafted version of a normal weapon. 
+Wielding it provides a +1 enhancement bonus on attack rolls. All magic 
+weapons are automatically considered to be of masterwork quality. The 
+enhancement bonus granted by the masterwork quality doesn't stack with 
+the enhancement bonus provided by the weapon's magic.</p>
+
+<p>Just as with weapons, you can purchase or craft <strong>masterwork 
+versions of armor or shields.</strong> Such a well-made item functions like the 
+normal version, except that its armor check penalty is lessened by 1. 
+The masterwork quality of a suit of armor or shield never provides a 
+bonus on attack or damage rolls, even if the armor or shield is used 
+as a weapon.</p>
+
+<p>A <strong>masterwork tool</strong> is perfect for its intended job. It grants a +2 
+circumstance bonus on a related skill check (if any). The bonuses 
+provided by multiple masterwork items do not stack.</p>
+
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Attacks</li>
+     <li>Checks</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="morale">
+    <h4><span class="type-signature"></span>morale<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>morale bonus</strong> represents the effects of greater hope, courage, 
+and determination (or hopelessness, cowardice, and despair in the 
+case of a morale penalty). Multiple morale bonuses on the same 
+character do not stack. Only the highest morale bonus applies. 
+Non-intelligent creatures (creatures with an Intelligence of 0 or no 
+Intelligence at all) cannot benefit from morale bonuses.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Attacks</li>
+     <li>Checks</li>
+     <li>Damage</li>
+     <li>Saves</li>
+     <li>Str</li>
+     <li>Dex</li>
+     <li>Con</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="natarmor">
+    <h4><span class="type-signature"></span>natarmor<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>natural armor</strong> bonus improves armor class resulting from a 
+creature's naturally tough hide. Natural armor bonuses stack with all 
+other bonuses to armor class (even with armor bonuses) except other 
+natural armor bonuses. Some magical effects (such as the barkskin 
+spell) grant an enhancement bonus to the creature's existing natural 
+armor bonus, which has the effect of increasing the natural armor's 
+overall bonus to armor class. A natural armor bonus doesn't apply 
+against touch attacks.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>AC</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="profane">
+    <h4><span class="type-signature"></span>profane<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>profane bonus</strong> (or penalty) stems from the power of evil. 
+Multiple profane bonuses on the same character or object do not 
+stack. Only the highest profane bonus applies.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Attacks</li>
+     <li>Checks</li>
+     <li>Damage</li>
+     <li>DCs</li>
+     <li>Saves</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="proficiency">
+    <h4><span class="type-signature"></span>proficiency<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Represents <strong>proficiency penalties</strong> for weapons and armor.</p>
+<p>When using a weapon with which you are not proficient, you take a 
+–4 penalty on attack rolls.</p>
+
+<p>A character who is wearing armor with which he is not proficient 
+applies its armor check penalty to attack rolls and to all skill 
+checks that involve moving.</p>
+
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Attacks</li>
+     <li>Checks</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="racial">
+    <h4><span class="type-signature"></span>racial<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>racial bonus</strong> comes from the culture a particular creature was 
+brought up in or because of innate characteristics of that type of 
+creature. If a creature's race changes (for instance, if it dies and 
+is reincarnated), it loses all racial bonuses it had in its previous 
+form.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>--</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="resistance">
+    <h4><span class="type-signature"></span>resistance<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>resistance bonus</strong> affects saving throws, providing extra protection 
+against harm. Multiple resistance bonuses on the same character or 
+object do not stack. Only the highest resistance bonus applies.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Saves</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="sacred">
+    <h4><span class="type-signature"></span>sacred<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>sacred bonus</strong> (or penalty) stems from the power of good. 
+Multiple sacred bonuses on the same character or object do not stack. 
+Only the highest sacred bonus applies.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Attacks</li>
+     <li>Checks</li>
+     <li>Damage</li>
+     <li>DCs</li>
+     <li>Saves</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="shield">
+    <h4><span class="type-signature"></span>shield<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>shield bonus</strong> improves armor class and is granted by a shield or 
+by a spell or magic effect that mimics a shield. Shield bonuses stack 
+with all other bonuses to AC except other shield bonuses. A magic 
+shield typically grants an enhancement bonus to the shield's shield 
+bonus, which has the effect of increasing the shield's overall bonus 
+to AC. A shield bonus granted by a spell or magic item typically 
+takes the form of an invisible, tangible field of force that protects 
+the recipient. A shield bonus doesn't apply against touch attacks.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>AC</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="size">
+    <h4><span class="type-signature"></span>size<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>size bonus</strong> or penalty is derived from a creature's size 
+category. Size modifiers of different kinds apply to armor class, 
+attack rolls, Stealth checks, combat maneuver checks, and various 
+other checks.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>Ability scores</li>
+     <li>AC</li>
+     <li>Attacks</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="trait">
+    <h4><span class="type-signature"></span>trait<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A <strong>trait bonus</strong> is a bonus granted via a character trait. Character 
+traits are an optional additional character defining feature like 
+feats but less powerful (typically about half as strong as a feat.) 
+As with other named bonuses, trait bonuses do not &quot;stack&quot; with other 
+trait bonuses.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>--</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt class="name" id="untyped">
+    <h4><span class="type-signature"></span>untyped<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>An <strong>untyped bonus</strong> is rare, but generally stacks with all other 
+bonuses except untyped bonuses from the same (or similar) sources.</p>
+<p><p><strong>Can affect:</strong></p></p>
+<ul>
+     <li>--</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<dt>
+    <h4 class="name" id="add"><span class="type-signature"></span>add<span class="signature">(otherBonus)</span><span class="type-signature"> &rarr; {<a href="Bonus.html">Bonus</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Adds two Bonus objects together, taking the sum of stackable bonus types
+(like dodge) and the higher of non-stackable bonus types (like armor).</p>
+    </div>
+    
+
+    
+
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>otherBonus</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bonus.html">Bonus</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Bonus object to add to this one</p></td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="Bonus.html">Bonus</a></span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="toString"><span class="type-signature"></span>toString<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Calculates the sum of all bonuses and returns as a String (or &quot;&quot; if zero)</p>
+    </div>
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">String</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="valueOf"><span class="type-signature"></span>valueOf<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Calculates the sum of all bonuses and returns as a Number</p>
+    </div>
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a>
+	on 2015-10-20T16:23:08+00:00 using the <a
+	href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<!--<script src="scripts/sunlight.js"></script>-->
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/bootstrap-dropdown.js"></script>
+<script src="scripts/toc.js"></script>
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "h1,h2,h3,h4",
+		showAndHide : false,
+		scrollTo    : "100px"
+	} );
+
+	$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+	//			$( ".tutorial-section pre, .readme-section pre" ).addClass( "sunlight-highlight-javascript" ).addClass( "linenums" );
+
+	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			lang = "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : false,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+</body>
+</html>

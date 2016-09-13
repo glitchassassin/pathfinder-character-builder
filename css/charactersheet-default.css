@@ -1,0 +1,1282 @@
+
+
+@media print {
+    * {
+        -webkit-transition: none !important;
+        transition: none !important;
+    }
+    body * {
+        visibility: hidden;
+        font-weight: normal;
+        
+    }
+    .sheet, .sheet * {
+        visibility:visible;
+        /*-webkit-print-color-adjust: exact;*/
+    }
+    body {
+        background-color: #fff !important;
+    }
+    .sheet {
+        border: 0px !important;
+    }
+    .page1 {
+        position: absolute;
+        top: -6px;
+        left: -6px;
+    }
+    .page2 {
+        position: absolute;
+        top: 0px;
+        left: -6px;
+    }
+}
+/*    ----===-        -\
+|    General styles    |
+\-         -===----   */
+
+.sheet {
+    position: relative;
+    margin: 4px auto;
+    
+    width: 900px;
+    height: 1160px;
+    
+    border: 1px #888 solid;
+    
+    page-break-after: auto;
+    background-repeat: no-repeat;
+}
+.section {
+    border: 1px rgba(0,0,0,0) solid;
+}
+.section.editable:hover {
+    box-shadow: 0px 0px 10px 0px rgba(63,81,181,1);
+}
+.page1 {
+    background-image: url(../img/image-0001.jpg);
+    background-position: 50% -10px;
+    background-size: 900px 1169px;
+}
+.page2 {
+    background-image: url(../img/image-0002.jpg);
+    background-position: 50% -10px;
+    background-size: 900px 1169px;
+}
+.popup {
+    z-index: 1;
+    position: absolute;
+    padding-bottom: 5px;
+    left: 75%;
+    top: 0;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.9); /* rgba(247, 230, 200, 0.9); */
+    border: 1px #ccc solid;
+    opacity: 1;
+    font-size: 11px;
+}
+.popup.ng-hide-add, .popup.ng-hide-remove {
+    -webkit-transition:0.15s linear all;
+    -moz-transition:0.15s linear all;
+    -o-transition:0.15s linear all;
+    transition:0.15s linear all;
+}
+.popup.ng-hide {
+  opacity: 0;
+}
+.popup.ng-leave {
+    -webkit-animation:0.15s fadeAnimation;
+    -moz-animation:0.15s fadeAnimation;
+    -o-animation:0.15s fadeAnimation;
+    animation:0.15s fadeAnimation;
+}
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+.popup .name.value {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    margin: 1px 0px;
+    text-align: center;
+    font-size: 14px;
+    width: 150px;
+    display: inline-block;
+}
+.popup .title {
+    position: relative;
+    display: inline-block;
+    font-style: italic;
+    text-align: left;
+    width: 50px;
+    margin-left: -5px;
+}
+.popup .value {
+    position: relative;
+    display: inline-block;
+    margin: 1px 5px;
+    margin-left: 10px;
+    width: 285px;
+    text-align: left;
+}
+.popup .full-width .title {
+    width: 290px;
+}
+.popup .full-width {
+    display: block;
+    margin-top: 5px;
+    white-space: pre-line;
+}
+
+
+
+/*    ----===-        -\
+|    Section styles    |
+\-         -===----   */
+
+/** Page 1 **/
+
+.logo {
+    position: absolute;
+    left: 0px;
+    top: 30px;
+    
+    width: 350px;
+    height: 110px;
+}
+.class-race {
+    position: absolute;
+    left: 350px;
+    top: 30px;
+    
+    width: 550px;
+    height: 110px;
+}
+.stats {
+    position: absolute;
+    left: 0px;
+    top: 140px;
+    
+    height: 165px;
+    width: 167px;
+}
+.hitpoints {
+    position: absolute;
+    left: 260px;
+    top: 140px;
+    
+    height: 145px;
+    width: 207px;
+}
+.speeds {
+    position: absolute;
+    left: 467px;
+    top: 140px;
+    
+    width: 433px;
+    height: 79px;
+}
+.skills {
+    position: absolute;
+    left: 467px;
+    top: 219px;
+    
+    height: 735px;
+    width: 433px;
+    
+    padding-top: 52px;
+}
+.initiative {
+    position: absolute;
+    left: 260px;
+    top: 285px;
+    
+    height: 40px;
+    width: 207px;
+}
+.armorclass {
+    position: absolute;
+    left: 0px;
+    top: 325px;
+    
+    height: 76px;
+    width: 467px;
+}
+.savingthrows {
+    position: absolute;
+    left: 0px;
+    top: 401px;
+    
+    height: 81px;
+    width: 467px;
+    
+    padding-top: 20px;
+}
+.baseattack {
+    position: absolute;
+    left: 0px;
+    top: 502px;
+    
+    height: 30px;
+    width: 310px;
+}
+.spellresistance {
+    position: absolute;
+    left: 310px;
+    top: 502px;
+    
+    height: 30px;
+    width: 157px;
+}
+.cmb {
+    position: absolute;
+    left: 0px;
+    top: 532px;
+    
+    height: 41px;
+    width: 467px;
+}
+.cmd {
+    position: absolute;
+    left: 0px;
+    top: 573px;
+    
+    height: 41px;
+    width: 467px;
+}
+.attacks {
+    position: absolute;
+    left: 0px;
+    top: 614px;
+    
+    height: 467px;
+    width: 467px;
+}
+.languages {
+    position: absolute;
+    left: 467px;
+    top: 1008px;
+    
+    height: 53px;
+    width: 370px;
+    
+    padding-top: 20px;
+    padding-left: 5px;
+    
+    line-height: 16px;
+    font-size: 12px;
+}
+
+/** Page 2 **/
+
+.acitems {
+    position: absolute;
+    left: 0px;
+    top: 55px;
+    
+    height: 171px;
+    width: 576px;
+    
+    padding-top: 27px;
+    padding-left: 51px;
+}
+.gear {
+    position: absolute;
+    left: 0px;
+    top: 253px;
+    
+    height: 806px;
+    width: 205px;
+    
+    padding-top: 39px;
+    padding-left: 50px;
+}
+.feats {
+    position: absolute;
+    left: 255px;
+    top: 253px;
+    
+    height: 273px;
+    width: 357px;
+    
+    padding-top: 37px;
+    padding-left: 15px;
+}
+.abilities {
+    position: absolute;
+    left: 255px;
+    top: 563px;
+    
+    height: 437px;
+    width: 357px;
+    
+    padding-top: 31px;
+    padding-left: 15px;
+}
+.xp {
+    position: absolute;
+    left: 255px;
+    top: 1033px;
+    
+    height: 65px;
+    width: 372px;
+}
+.spells {
+    position: absolute;
+    left: 627px;
+    top: 55px;
+    
+    height: 1043px;
+    width: 273px;
+}
+
+
+/*     ----====-         -\
+|    General Substyles    |
+\-          -====----    */
+
+.label {
+    display: inline-block;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    
+    height: 21px;
+    line-height: 21px;
+    opacity:0;
+}
+.field {
+    display: inline-block;
+    height: 19px;
+    line-height: 19px;
+    width: 30px;
+    
+    text-align: center;
+    border: 1px rgba(0,0,0,0) solid;
+    position: absolute;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.caption {
+    font-variant: small-caps;
+    font-size: 8px;
+    opacity:0;
+}
+.descriptor {
+    font-size: 8px;
+}
+
+/* Color Styles */
+
+.color-stat {
+    color: #008;
+}
+.color-atk {
+    color: #800;
+}
+.color-def {
+    color: #080;
+}
+.color-magic {
+    color: #808;
+}
+.color-money {
+    color: #85bb65;
+}
+
+/*     ----====-         -\
+|   Section 1 Substyles   |
+\-          -====----    */
+
+
+/*    ----===-        ---\
+|  Class-Race substyles  |
+\---         -===----   */
+.class-race {
+    /*background-color: #fff;*/
+}
+
+.class-race .value {
+    position: absolute;
+    font-size: 13px;
+    line-height: 17px;
+    text-align: center;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.class-race .name.value {
+    top: 16px;
+    left: 4px;
+    
+    width: 186px;
+}
+.class-race .alignment.value {
+    top: 16px;
+    left: 200px;
+    
+    width: 62px;
+}
+.class-race .player.value {
+    top: 16px;
+    left: 275px;
+    
+    width: 204px;
+}
+.class-race .classlevel.value {
+    top: 45px;
+    left: 4px;
+    
+    padding-left: 4px;
+    
+    width: 255px;
+}
+.class-race .classlevel .pair ~ .pair:before {
+    content: "/";
+}
+.class-race .deity.value {
+    top: 45px;
+    left: 275px;
+    
+    width: 116px;
+}
+.class-race .homeland.value {
+    top: 45px;
+    left: 395px;
+    
+    width: 83px;
+}
+.class-race .race.value {
+    top: 74px;
+    left: 4px;
+    
+    width: 114px;
+}
+.class-race .size.value {
+    top: 74px;
+    left: 127px;
+    
+    width: 47px;
+}
+.class-race .gender.value {
+    top: 74px;
+    left: 181px;
+    
+    width: 42px;
+}
+.class-race .age.value {
+    top: 74px;
+    left: 232px;
+    
+    width: 32px;
+}
+.class-race .height.value {
+    top: 74px;
+    left: 275px;
+    
+    width: 49px;
+}
+.class-race .weight.value {
+    top: 74px;
+    left: 331px;
+    
+    width: 52px;
+}
+.class-race .hair.value {
+    top: 74px;
+    left: 388px;
+    
+    width: 46px;
+}
+.class-race .eyes.value {
+    top: 74px;
+    left: 439px;
+    
+    width: 40px;
+}
+
+
+/*     ----====-         -\
+|          Stats          |
+\-          -====----    */
+
+.stats {
+    padding-top: 20px;
+    padding-left: 91px;
+}
+.stats > .stat {
+    margin-bottom: 5px;
+    height: 21px;
+}
+.stats .stat .score.field {
+    left: 100px;
+}
+.stats .stat .mod.field {
+    left: 141px;
+}
+.stats .stat .score-temp.field {
+    left: 182px;
+}
+.stats .stat .mod-temp.field {
+    left: 223px;
+}
+
+/*     ----====-         -\
+|        Hitpoints        |
+\-          -====----    */
+
+.hitpoints .field {
+    top: 7px;
+}
+.hitpoints .total-hp {
+    width: 75px;
+    height: 23px;
+    left: 68px;
+}
+.hitpoints .dr.field {
+    width: 52px;
+    height: 23px;
+    left: 149px;
+}
+.hitpoints .current-hp.field {
+    top: 46px;
+    left: 4px;
+    width: 196px;
+    height: 49px;
+}
+.hitpoints .nonlethal-hp.field {
+    top: 110px;
+    left: 4px;
+    width: 196px;
+    height: 24px;
+}
+
+
+/*     ----====-         -\
+|     Speed substyles     |
+\-          -====----    */
+
+
+.speeds .line1 {
+    position: absolute;
+    top: 4px;
+    height: 36px;
+    width: 305px;
+}
+.speeds .line2 {
+    position: absolute;
+    top: 40px;
+    height: 36px;
+    width: 305px;
+}
+.speeds .speed.field {
+    padding-top: 4px;
+    height: 19px;
+}
+.speeds .speed.field > .speed.ft {
+    position: absolute;
+    
+    width: 42px;
+    left: 3px;
+    
+    text-align: right;
+}
+.speeds .speed.field .speed.sq {
+    position: absolute;
+    
+    width: 42px;
+    left: 53px;
+    
+    text-align: right;
+}
+
+.speeds .base.speed.field {
+    width: 111px;
+    
+    left: 69px;
+}
+.speeds .armor.speed.field {
+    width: 111px;
+    
+    left: 188px;
+}
+.speeds .fly.speed.field {
+    width: 111px;
+    
+    left: 4px;
+}
+.speeds .swim.speed.field {
+    width: 56px;
+    left: 121px;
+}
+.speeds .climb.speed.field {
+    width: 56px;
+    left: 182px;
+}
+.speeds .burrow.speed.field {
+    width: 56px;
+    left: 243px;
+}
+.speeds .temp.field {
+    top: 7px;
+    left: 310px;
+    
+    width: 65px;
+    height: 50px;
+    
+    font-size: 11px;
+    line-height: 11px;
+    overflow: hidden;
+    white-space: normal;
+    padding-top: 8px;
+}
+
+
+/*     ----===-         -\
+|  Initiative substyles  |
+\-          -===----    */
+
+.initiative .field {
+    top: 5px;
+}
+.initiative .total.field {
+    left: 90px;
+}
+.initiative .dex.field {
+    left: 130px;
+}
+.initiative .misc.field {
+    left: 170px;
+}
+
+/*    ----===-        -\
+|     AC substyles     |
+\-         -===----   */
+
+.armorclass .field {
+    top: 7px;
+}
+.armorclass .total.field {
+    left: 98px;
+}
+.armorclass .armor.field {
+    left: 171px;
+}
+.armorclass .shield.field {
+    left: 214px;
+}
+.armorclass .dex.field {
+    left: 257px;
+}
+.armorclass .size.field {
+    left: 300px;
+}
+.armorclass .natarmor.field {
+    left: 343px;
+}
+.armorclass .deflect.field {
+    left: 386px;
+}
+.armorclass .misc.field {
+    left: 429px;
+}
+
+.armorclass .touch.field {
+    top: 50px;
+    left: 98px;
+}
+.armorclass .flat.field {
+    top: 50px;
+    left: 226px;
+}
+.armorclass .other.field {
+    width: 194px;
+    top: 50px;
+    left: 267px;
+    font-size: 11px;
+}
+
+
+
+/*        ----===-            -\
+|    Savingthrows substyles    |
+\-             -===----       */
+
+.savingthrows .save {
+    position: relative;
+    height: 26px;
+}
+.savingthrows .save .field {
+    top: 1px;
+}
+
+.savingthrows .save .total.field {
+    left: 152px;
+}
+.savingthrows .save .base.field {
+    left: 194px;
+}
+.savingthrows .save .ability.field {
+    left: 236px;
+}
+.savingthrows .save .magic.field {
+    left: 278px;
+}
+.savingthrows .save .misc.field {
+    left: 320px;
+}
+.savingthrows .save .temp.field {
+    left: 362px;
+}
+
+
+.savingthrows .mods.field {
+    right: 4px;
+    top: 4px;
+    
+    width: 62px;
+    height: 81px;
+    
+    font-size: 10px;
+    line-height: 10px;
+    overflow: hidden;
+    white-space: normal;
+    padding-top: 8px;
+}
+
+.savingthrows .mods .mod {
+    display: block;
+}
+
+/*     ----====-         -\
+|      BAB substyles      |
+\-          -====----    */
+
+.baseattack .field {
+    width: 50px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+/*   ----====-      -\
+|    SR substyles    |
+\-      -====----   */
+
+.spellresistance .field {
+    position: absolute;
+    top: 4px;
+    right: 21px;
+}
+
+/*   ----====-       -\
+|    CMB substyles    |
+\-        -====----  */
+
+.cmb .field {
+    position: absolute;
+    top: 4px;
+}
+.cmb .total.field {
+    width: 39px;
+    left: 184px;
+}
+.cmb .bab.field {
+    left: 237px;
+}
+.cmb .str.field {
+    left: 282px;
+}
+.cmb .size.field {
+    left: 327px;
+}
+.cmb .other.field {
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    height: 33px;
+    width: 94px;
+}
+
+
+/*   ----====-       -\
+|    CMD substyles    |
+\-        -====----  */
+
+.cmd .field {
+    position: absolute;
+    top: 4px;
+}
+.cmd .total.field {
+    width: 39px;
+    left: 184px;
+}
+.cmd .bab.field {
+    left: 237px;
+}
+.cmd .str.field {
+    left: 282px;
+}
+.cmd .dex.field {
+    left: 327px;
+}
+.cmd .size.field {
+    left: 373px;
+}
+
+/*     ----====-        -\
+|    Skills substyles    |
+\-         -====----    */
+
+.skills .skill {
+    position: relative;
+    height: 17px;
+}
+.skills .skill .class-skill {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    
+    width: 7px;
+    height: 7px;
+    line-height: 3px;
+}
+.skills .skill:nth-of-type(n+11) .class-skill {
+    /* Hack to keep class skill checkboxes in line */
+    height: 9px;
+}
+.skills .skill .field {
+    top: -1px;
+}
+.skills .skill .total.field {
+    left: 177px;
+}
+.skills .skill .ability.field {
+    left: 250px;
+}
+.skills .skill .ranks.field {
+    left: 297px;
+}
+.skills .skill .misc.field {
+    left: 344px;
+}
+.skills .skill .subskill {
+    left: 61px;
+    
+    width: 111px;
+    
+    line-height: 25px;
+    font-size: 10px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.skills .modifiers {
+    padding-top: 34px;
+    padding-left: 5px;
+    
+    width: 371px;
+    height: 34px;
+    
+    line-height: 16px;
+    font-size: 12px;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*    ----===-        -\
+|    Attacks styles    |
+\-         -===----   */
+
+.attacks .attack {
+    height: 94px;
+    position: relative;
+}
+
+.attacks .attack .field { 
+    height: 24px;
+    line-height: 24px;
+}
+
+.attacks .attack .weapon {
+    top: 23px;
+    left: 36px;
+    width: 270px;
+}
+.attacks .attack .type {
+    top: 62px;
+    left: 36px;
+    width: 48px;
+}
+.attacks .attack .range {
+    top: 62px;
+    left: 85px;
+    width: 71px;
+}
+.attacks .attack .ammunition {
+    top: 62px;
+    left: 156px;
+    width: 151px;
+}
+.attacks .attack .bonus {
+    top: 23px;
+    left: 308px;
+    width: 98px;
+}
+.attacks .attack .critical {
+    top: 23px;
+    left: 405px;
+    width: 56px;
+}
+.attacks .attack .damage {
+    top: 62px;
+    left: 308px;
+    width: 152px;
+}
+
+/*    ----===-        -\
+|   Languages styles   |
+\-         -===----   */
+
+.languages .language ~ .language:before {
+    content: ", ";
+}
+
+/*             ----====-                 -\
+|           Section 2 Substyles           |
+\-                  -====----            */
+
+/*    ----===-        -\
+|    ACitems styles    |
+\-         -===----   */
+
+.acitems .acitem {
+    height: 27px;
+}
+
+.acitems .acitem .field {
+    height: 25px;
+    line-height: 25px;
+}
+
+.acitems .acitem.totals {
+    position: absolute;
+    width: 100%;
+    bottom: 8px;
+    left: 1px;
+}
+
+.acitems .acitem .item {
+    width: 165px;
+}
+.acitems .acitem .bonus {
+    width: 49px;
+    left: 217px;
+}
+.acitems .acitem .type {
+    width: 72px;
+    left: 266px;
+}
+.acitems .acitem .check {
+    width: 73px;
+    left: 340px;
+}
+.acitems .acitem .spellfailure {
+    width: 64px;
+    left: 414px;
+}
+.acitems .acitem .weight {
+    width: 55px;
+    left: 480px;
+}
+.acitems .acitem .properties {
+    width: 79px;
+    left: 535px;
+}
+
+/*    ----====-        -\
+|      Gear styles      |
+\-         -====----   */
+
+.gear .item {
+    height: 22px;
+    overflow: hidden;
+    position: relative;
+}
+.gear .item .field {
+    font-size: 12px;
+    line-height: 22px;
+}
+.gear .item .name {
+    left: 1px;
+    width: 169px;
+}
+.gear .item .type {
+    display: none;
+}
+.gear .item .location {
+    display: none;
+}
+.gear .item .description {
+    display: none;
+}
+.gear .item .weight {
+    left: 172px;
+    width: 24px;
+}
+.gear .item .value {
+    display: none;
+}
+
+.gear .encumbrance {
+    position: absolute;
+    top: 603px;
+    height: 110px;
+    width: 200px;
+}
+
+.gear .encumbrance .weight.field {
+    top: 0px;
+    right: 0px;
+    width: 26px;
+    height: 25px;
+} 
+
+.gear .encumbrance .light.field {
+    top: 33px;
+}
+.gear .encumbrance .medium.field {
+    top: 60px;
+}
+.gear .encumbrance .heavy.field {
+    top: 86px;
+}
+
+.gear .encumbrance .lift.field {
+    left: 160px;
+}
+.gear .encumbrance .load.field {
+    left: 53px;
+}
+
+.gear .money {
+    position: absolute;
+    bottom: 5px;
+    width: 200px;
+    height: 95px;
+    
+    padding-left: 25px;
+}
+.gear .money .coins {
+    display: block;
+    height: 20.5px;
+}
+
+/*    ----===-        -\
+|     Feats styles     |
+\-         -===----   */
+
+.feats .feat {
+    height: 21px;
+    width: 170px;
+    display: inline-block;
+    position: relative;
+}
+
+.feats .feat > .type {
+    width: 52px;
+    font-size: 8px;
+    font-style: italic;
+}
+.feats .feat > .name {
+    width: 118px;
+    text-align: left;
+    font-size: 11px;
+    left: 55px;
+}
+
+/*    ----===-        -\
+|   Abilities styles   |
+\-         -===----   */
+
+.abilities .ability {
+    height: 22px;
+    width: 340px;
+    display: inline-block;
+    position: relative;
+}
+
+.abilities .ability > .type {
+    width: 15px;
+    font-size: 8px;
+    font-style: italic;
+}
+.abilities .ability > .name {
+    width: 150px;
+    text-align: left;
+    font-size: 12px;
+    left: 15px;
+}
+.abilities .ability > .uses {
+    width: 150px;
+    text-align: left;
+    font-size: 11px;
+    left: 175px;
+}
+
+/*  ----===-   -\
+|   XP styles   |
+\-   -===----  */
+
+.xp .field {
+    line-height: 31px;
+    font-size: 20px;
+}
+
+.xp .total {
+    width: 238px;
+    height: 31px;
+    
+    top: 26px;
+    left: 12px;
+}
+.xp .nextlevel {
+    width: 107px;
+    height: 31px;
+    
+    top: 26px;
+    left: 251px;
+}
+
+/*   ----====-     -\
+|   Spells styles   |
+\-     -====----   */
+
+.spells .spellstats {
+    height: 340px;
+    padding-top: 64px;
+}
+
+.spells .spellstats .level {
+    height: 26px;
+    position: relative;
+}
+
+.spells .spellstats .level .field {
+    width: 30px;
+    line-height: 14px;
+}
+
+.spells .spellstats .level .known {
+    left: 13px;
+}
+.spells .spellstats .level .savedc {
+    left: 58px;
+}
+.spells .spellstats .level .perday {
+    left: 149px;
+}
+.spells .spellstats .level .bonus {
+    left: 197px;
+}
+
+.spells .spellstats .modifiers {
+    position: relative;
+    
+    width: 224px;
+    height: 30px;
+    
+    left: 7px;
+    
+    font-size: 11px;
+    overflow: hidden;
+    padding: 2px;
+    padding-top: 8px;
+}
+
+.spells .spellstats .schools {
+    position: relative;
+    
+    width: 214px;
+    height: 20px;
+    
+    left: 7px;
+    
+    padding: 5px;
+    padding-top: 20px;
+    
+    text-align: center;
+}
+
+.spells .spellstats .schools .school ~ .school:before {
+    content: ' | ';
+}
+
+.spells .levels {
+    height: 630px;
+}
+
+.spells .levels .level {
+    padding-top: 11px;
+    padding-left: 13px;
+    font-size: 8px;
+}
+
+.spells .levels .level .spell {
+    height: 10px;
+    width: 107px;
+    display: inline-block;
+}
+.spells .levels .level .spell .name {
+    font-size: 9px;
+    line-height: 9px;
+    text-align: left;
+    
+    width: 100px;
+    height: 9px;
+    
+    padding-left: 7px;
+}
+.spells .levels .level .spell .spellcard {
+    display: none;
+}
+
+.spells .levels .level.zero {
+    height: 83px;
+    margin-top: 4px;
+}
+.spells .levels .level.one {
+    height: 83px;
+}
+.spells .levels .level.two {
+    height: 71px;
+}
+.spells .levels .level.three {
+    height: 61px;
+}
+.spells .levels .level.four {
+    height: 51px;
+}
+.spells .levels .level.five {
+    height: 39px;
+}
+.spells .levels .level.six {
+    height: 41px;
+}
+.spells .levels .level.seven {
+    height: 41px;
+}
+.spells .levels .level.eight {
+    height: 31px;
+}
+.spells .levels .level.nine {
+    height: 21px;
+}

@@ -1,0 +1,127 @@
+<md-dialog aria-label="Stats" ng-cloak class="stats-dialog">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>BASE STATS</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="manual">
+          <md-content class="md-padding tab-manual">
+            <div>
+              <span class="column">Base</span>
+              <span class="column">Racial Bonuses</span>
+              <span class="column">Totals</span>
+            </div>
+            <div>
+              <span class="column stat-setter">
+                <label>str</label>
+                <input type="number" min="0" max="18" ng-model="current_stats.str.inherent">
+              </span>
+              <span class="column racial">
+                {{current_stats.str.racial | xsign | ignoreZero}}
+              </span>
+              <span class="column total">
+                <label>str</label>
+                {{+current_stats.str.inherent + +current_stats.str.racial}}
+              </span>
+            </div>
+            <div>
+              <span class="column stat-setter">
+                <label>dex</label>
+                <input type="number" min="0" max="18" ng-model="current_stats.dex.inherent">
+              </span>
+              <span class="column racial">
+                {{current_stats.dex.racial | xsign | ignoreZero}}
+              </span>
+              <span class="column total">
+                <label>dex</label>
+                {{(+current_stats.dex.inherent + +current_stats.dex.racial)}}
+              </span>
+            </div>
+            <div>
+              <span class="column stat-setter">
+                <label>con</label>
+                <input type="number" min="0" max="18" ng-model="current_stats.con.inherent">
+              </span>
+              <span class="column racial">
+                {{current_stats.con.racial | xsign | ignoreZero}}
+              </span>
+              <span class="column total">
+                <label>con</label>
+                {{+current_stats.con.inherent + +current_stats.con.racial}}
+              </span>
+            </div>
+            <div>
+              <span class="column stat-setter">
+                <label>int</label>
+                <input type="number" min="0" max="18" ng-model="current_stats.int.inherent">
+              </span>
+              <span class="column racial">
+                {{current_stats.int.racial | xsign | ignoreZero}}
+              </span>
+              <span class="column total">
+                <label>int</label>
+                {{+current_stats.int.inherent + +current_stats.int.racial}}
+              </span>
+            </div>
+            <div>
+              <span class="column stat-setter">
+                <label>wis</label>
+                <input type="number" min="0" max="18" ng-model="current_stats.wis.inherent">
+              </span>
+              <span class="column racial">
+                {{current_stats.wis.racial | xsign | ignoreZero}}
+              </span>
+              <span class="column total">
+                <label>wis</label>
+                {{+current_stats.wis.inherent + +current_stats.wis.racial}}
+              </span>
+            </div>
+            <div>
+              <span class="column stat-setter">
+                <label>cha</label>
+                <input type="number" min="0" max="18" ng-model="current_stats.cha.inherent">
+              </span>
+              <span class="column racial">
+                {{current_stats.cha.racial | xsign | ignoreZero}}
+              </span>
+              <span class="column total">
+                <label>cha</label>
+                {{+current_stats.cha.inherent + +current_stats.cha.racial}}
+              </span>
+            </div>
+          </md-content>
+        </md-tab>
+        <md-tab label="roll">
+          <md-content class="md-padding tab-roll">
+            <h1 class="md-display-2">To Be Implemented</h1>
+          </md-content>
+        </md-tab>
+        <md-tab label="point buy">
+          <md-content class="md-padding tab-pointbuy">
+            <h1 class="md-display-2">To Be Implemented</h1>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="cancel()" class="md-raised">
+       Cancel
+      </md-button>
+      <md-button ng-click="save_stats()" class="md-raised md-primary" style="margin-right:20px;">
+        Save
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

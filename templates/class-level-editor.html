@@ -1,0 +1,40 @@
+<md-dialog aria-label="Add/Edit Level" ng-cloak class="class-level-dialog">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>ADD/EDIT LEVEL</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Choose Class">
+          <md-content class="md-padding tab-class">
+            <p>Here you can pick the class you're leveling in, as well as a favored class bonus (if applicable). If there are any customizations (talents, fighter groups, etc.) to pick, the option will be given at this point.</p>
+          </md-content>
+        </md-tab>
+        <md-tab label="Advanced Options">
+          <md-content class="md-padding tab-class-advanced">
+            <p>Here you can select archetypes (possibly other things as well, to be determined).</p>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="cancel()" class="md-raised">
+       Cancel
+      </md-button>
+      <md-button ng-click="save_stats()" class="md-raised md-primary" style="margin-right:20px;">
+        Save
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

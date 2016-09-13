@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: csheet-classes.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: csheet-classes.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @title General classes
+ * @overview The "base" classes that the rest of the system relies on
+ * @copyright (c) 2015 Greywether Games
+ * @license MIT
+ * @author Jon Winsley
+*/
+
+csheetApp.factory("Data", function() {
+    /**
+     * The Data class is a complex object that allows for data binding between
+     * properties, so they update when their source properties change. 
+     * Properties can only be defined during construction of the object, not
+     * added after the fact.
+     * 
+     * @class Data
+     * @param {Object} template - Template object to read properties from
+     * @param {Object} [updaters] - List of custom updater functions to apply to corresponding properties in template object (property names must match)
+     * @param {Object} [dependencies] - List of arrays of dependency links to establish (property names must match)
+     **/
+    function Data(template, updaters, dependencies) {
+        /**
+         * "Array" of fields that map to properties on the Data object.
+         * 
+         * @name Data#___
+         * @type Object
+         **/
+        this.___ = new Object();
+        Object.defineProperty(this, "___", { enumerable: false });
+        
+        /**
+         * This property reserved for Angular (since Data objects don't support
+         * on-the-fly extension).
+         * 
+         * @name Data#$$hashKey
+         * @type undefined
+         **/
+        this.$$hashKey = undefined;
+        Object.defineProperty(this, "$$hashKey", { enumerable: false });
+        
+        // Setup
+        for (var field in template) {
+            var updater = updaters &amp;&amp; updaters.hasOwnProperty(field) ? updaters[field] : false;
+            var deps = dependencies &amp;&amp; dependencies.hasOwnProperty(field) ? dependencies[field] : [];
+            
+            // Set up new Field object with updater in internal this.___ object
+            this.___[field] = new Field({}, updater);
+            
+            // Map field to property on that Data object
+            Object.defineProperty(this, field, {
+                get: (function(field) {
+                        return function() { return field.value; }
+                     })(this.___[field]),
+                set: (function(field, fieldName) {
+                        return function(newValue) { 
+                            if (field.value != newValue) {
+                                var oldValue = field.value;
+                                field.value = newValue;
+                                
+                                // Send a notification to observers that this field was changed.
+                                Object.getNotifier(this).notify({
+                                    type: "update",
+                                    name: fieldName,
+                                    oldValue: oldValue
+                                });
+                                
+                                // If this field is an object, we also have to observe that object for any updates and cascade them on down.
+                                if (typeof field.value == "object") {
+                                    Object.observe( field.value, (function(notifier, fieldName) {
+                                        return function(e) {
+                                            for (var i = 0; i &lt; e.length; i++) {
+                                                notifier.notify({
+                                                    type: "update",
+                                                    name: fieldName
+                                                });
+                                            }
+                                        }
+                                    })(Object.getNotifier(this), fieldName) );
+                                }
+                            }
+                        }
+                     })(this.___[field], field),
+                enumerable: true
+            });
+            
+            // Initialize field with stock value
+            this[field] = template[field];
+            
+            // Set up any specified dependencies
+            for (var i = 0; i &lt; deps.length; i++) {
+                this.depend(field, deps.obj, deps.field);
+            }
+            
+        }
+        
+        // Lock the object and prevent future properties from being added.
+        Object.preventExtensions(this);
+        
+        /**
+         * A Field object updates its *value* property automatically when its
+         * dependencies change.
+         * 
+         * @class Field
+         * @param {Any} newField Default field value may be any primitive or object type
+         * @param {Function} [updater] Updater function to override default updater
+         **/
+        function Field(newField, updater) {
+            /**
+             * Array of dependencies to calculate field value from
+             * 
+             * @name Field#dependencies
+             * @type Array
+             **/
+            this.dependencies = [];
+            
+            /**
+             * Calculated data value
+             * 
+             * @name Field#value
+             * @type Any
+             **/
+            this.value = newField;
+            
+            /**
+             * Update() should be a stateless "pure" function. It takes an array 
+             * as its argument, performs some calculations, and returns a value. 
+             * To avoid complications, it should never reference any of the Field 
+             * object's properties.
+             * 
+             * The default updater adds all dependencies together, either with an
+             * add() function if the dependency is an object and has one, or by 
+             * casting it as a number otherwise.
+             * 
+             * @memberof Field
+             * @name update
+             * @param {Array} List of values to calculate final value from. May be any kind of primitive or object.
+             **/
+            this.update = updater || function(dependencies) {
+                var total = 0;
+                if (dependencies.length > 0) {
+                    for (var i = 0; i &lt; dependencies.length; i++) {
+                        if (typeof dependencies[i] == "object" &amp;&amp; dependencies[i].hasOwnProperty('add')) {
+                            total = dependencies[i].add(total);
+                        }
+                        else {
+                            total += Number(dependencies[i]);
+                        }
+                    }
+                    return total;
+                }
+            }
+        }
+            
+        /**
+         * Recalculates the value property from the field's dependencies using 
+         * the update() function.
+         * 
+         * @memberof Field
+         **/
+        Field.prototype.refresh = function() {
+            var dependencyList = []
+            for (var i = 0; i &lt; this.dependencies.length; i++) {
+                dependencyList.push(this.dependencies[i].obj[this.dependencies[i].property]);
+            }
+            this.value = this.update(dependencyList);
+            return this.value;
+        };
+            
+        /**
+         * If value is an object and has its own valueOf() function, return that.
+         * Otherwise, return value cast as a Number.
+         * 
+         * @memberof Field
+         **/
+        Field.prototype.valueOf = function() {
+            if (typeof this.value == "object" &amp;&amp; this.value.hasOwnProperty('valueOf')) {
+                return this.value.valueOf();
+            }
+            return Number(this.value);
+        };
+            
+        /**
+         * If value is an object and has its own toString() function, return that.
+         * Otherwise, return value cast as a String.
+         * 
+         * @memberof Field
+         **/
+        Field.prototype.toString = function() {
+            if (typeof this.value == "object" &amp;&amp; this.value.hasOwnProperty('toString')) {
+                return this.value.toString();
+            }
+            return String(this.value);
+        };
+    }
+    
+    /**
+     * Adds a source to a field on a Data object. The field will monitor the
+     * provided source object, and when it registers a change, it will call the
+     * field's update() function to compile all its sources into a new value for
+     * the field.
+     * 
+     * @memberof Data
+     * @param {String} Field on this object to add a dependency for
+     * @param {Object} Target object with property to observe
+     * @param {String} Name of property on target object
+     **/
+    Data.prototype.depend = function(field, dataObject, property) {
+        if (!this.___.hasOwnProperty(field)) {
+            throw new TypeError("This object doesn't have a field \"" + field + "\"");
+        }
+        
+        // Attach dependency to the field in question
+        this.___[field].dependencies.push({
+            obj: dataObject,
+            property: property,
+        });
+        
+        Object.observe(dataObject, (function(that, fields) {
+            return function(e) {
+                var recalcs = {};
+                for (var event = 0; event &lt; e.length; event++) {
+                    for (field in fields) {
+                        if (typeof field !== "function") {
+                            for (var j = 0; j &lt; fields[field].dependencies.length; j++) {
+                                if (e[event].name == fields[field].dependencies[j].property) {
+                                    recalcs[field] = fields[field];
+                                }
+                            }
+                        }
+                    }
+                }
+            
+                for (field in recalcs) {
+                    var notifier = Object.getNotifier(that);
+                    var oldValue = recalcs[field].value;
+                    var newValue = recalcs[field].refresh();
+                    if (oldValue != newValue) {
+                        notifier.notify({
+                            type: 'update',
+                            name: field,
+                            oldValue: oldValue
+                        });
+                    }
+                }
+            }
+        })(this, this.___));
+        
+        this.___[field].refresh();
+    };
+    
+    
+    /**
+     * Shortcut form for depend() to set up multiple dependencies at once.
+     * 
+     * @memberof Data
+     * @param {Object} fields - Basic object (properties named to match target properties on this Data object)
+     * @param {Object} fields.any - Where *any* is a local property on this Data object
+     * @param {Object} fields.any.obj - The target object with property to observe
+     * @param {String} fields.any.property - The name of the property on the target object to observe
+     **/
+    Data.prototype.dependBatch = function(fields) {
+        for (var field in fields) {
+            for (var i = 0; i &lt; fields[field].length; i++) {
+                this.depend(field, fields[field][i].obj, fields[field][i].property);
+            }
+        }
+    };
+    /**
+     * Clones a Data object and any properties that are also objects. By default,
+     * does not preserve dependency links.
+     * 
+     * @memberof Data
+     * @param {boolean} [preserve] - Preserve links?
+     **/
+    Data.prototype.clone = function(preserve) {
+        var cloneFields = {};
+        var cloneUpdaters = {};
+        var cloneDependencies = {};
+        for (var field in this.___) {
+            // Clone field data...
+            if (typeof this.___[field].value == "object" &amp;&amp; "clone" in this.___[field].value) {
+                // Object already has a clone() method (probably another Data 
+                // object). Use that.
+                cloneFields[field] = this.___[field].value.clone();
+            }
+            else if (typeof this.___[field].value == "object") {
+                // "Extends" an empty object as an easy way to create a clone
+                cloneFields[field] = angular.extend({}, this.___[field].value);
+            }
+            else {
+                // Field value is not an object, so can be copied without issue.
+                cloneFields[field] = this.___[field].value;
+            }
+            
+            // Clone updater...
+            cloneUpdaters[field] = this.___[field].update;
+            
+            if (preserve) {
+                cloneDependencies[field] = this.___[field].dependencies;
+            }
+        }
+        var newClone = new this.constructor(cloneFields, cloneUpdaters, cloneDependencies);
+        return newClone;
+    };
+    Object.defineProperty(Data.prototype, "dependBatch", { enumerable: false });
+    Object.defineProperty(Data.prototype, "depend", { enumerable: false });
+    Object.defineProperty(Data.prototype, "clone", { enumerable: false });
+    
+    return Data;
+});
+
+csheetApp.factory("Bonus", function(Data) {
+    /**
+     * A special kind of pre-defined Data class which calculates its total value
+     * from its list of bonus types. Bonus objects can be added together, following
+     * the Pathfinder rules for which bonus types stack and which do not.
+     * 
+     * @class Bonus
+     * @param {Object} template - Template object to copy properties from
+     * @param {Object} [updaters] - List of custom updater functions to apply to corresponding properties in template object (property names must match)
+     * @param {Object} [dependencies] - List of arrays of dependency links to establish (property names must match)
+     **/
+    function Bonus(template, updaters, dependencies) {
+        /**
+         * An **alchemical bonus** is granted by the use of a non-magical, 
+         * alchemical substance such as antitoxin.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>Ability scores&lt;/li>
+         *      &lt;li>Saves&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#alchemical
+         **/
+        /**
+         * An **armor bonus** applies to armor class and is granted by armor or 
+         * by a spell or magical effect that mimics armor. Armor bonuses stack 
+         * with all other bonuses to armor class (even with natural armor bonuses) 
+         * except other armor bonuses. An armor bonus doesn't apply against touch 
+         * attacks, except for armor bonuses granted by force effects (such as 
+         * the mage armor spell) which apply against incorporeal touch attacks, 
+         * such as that of a shadow.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>AC&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#armor
+         **/
+        /**
+         * A **Base Attack Bonus** is a modifier added to your attack rolls. A 
+         * higher number means you're better at combat.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>Attacks&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#baseattack
+         **/
+        /**
+         * A **circumstance bonus (or penalty)** arises from specific conditional 
+         * factors impacting the success of the task at hand. Circumstance bonuses 
+         * stack with all other bonuses, including other circumstance bonuses, 
+         * unless they arise from essentially the same source.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>Attacks&lt;/li>
+         *      &lt;li>Checks&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#circumstance
+         **/
+        /**
+         * A **competence bonus (or penalty)** affects a character's performance of 
+         * a particular task, as in the case of the bardic ability to inspire 
+         * competence. Such a bonus may apply on attack rolls, saving throws, 
+         * skill checks, caster level checks, or any other checks to which a 
+         * bonus relating to level or skill ranks would normally apply. It does 
+         * not apply on ability checks, damage rolls, initiative checks, or other 
+         * rolls that aren't related to a character's level or skill ranks. 
+         * Multiple competence bonuses don't stack; only the highest bonus applies.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>Attacks&lt;/li>
+         *      &lt;li>Checks&lt;/li>
+         *      &lt;li>Saves&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#competence
+         **/
+        /**
+         * A **deflection bonus** affects armor class and is granted by a spell or 
+         * magic effect that makes attacks veer off harmlessly. Deflection bonuses 
+         * stack with all other bonuses to AC except other deflection bonuses. A 
+         * deflection bonus applies against touch attacks.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>AC&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#deflection
+         **/
+        /**
+         * A **dodge bonus** improves armor class (and sometimes Reflex saves) 
+         * resulting from physical skill at avoiding blows and other ill effects. 
+         * Dodge bonuses are usually not granted by spells or magic items. 
+         * Any situation or effect (except wearing armor) that negates a character's 
+         * Dexterity bonus also negates any dodge bonuses the character may have. 
+         * Dodge bonuses stack with all other bonuses to AC, even other dodge 
+         * bonuses. Dodge bonuses apply against touch attacks.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>AC&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#dodge
+         **/
+        /**
+         * An **enhancement bonus** represents an increase in the sturdiness and/or 
+         * effectiveness of armor or natural armor, or the effectiveness of a 
+         * weapon, or a general bonus to an ability score. Multiple enhancement 
+         * bonuses on the same object (in the case of armor and weapons), creature 
+         * (in the case of natural armor), or ability score do not stack. Only 
+         * the highest enhancement bonus applies. Since enhancement bonuses to 
+         * armor or natural armor effectively increase the armor or natural 
+         * armor's bonus to AC, they don't apply against touch attacks.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>Ability scores&lt;/li>
+         *      &lt;li>AC&lt;/li>
+         *      &lt;li>Attacks&lt;/li>
+         *      &lt;li>Damage&lt;/li>
+         *      &lt;li>Speed&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#enhancement
+         **/
+        /**
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>Ability scores&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#inherent
+         **/
+        /**
+         * An **insight bonus** improves performance of a given activity by 
+         * granting the character an almost precognitive knowledge of what might 
+         * occur. Multiple insight bonuses on the same character or object do 
+         * not stack. Only the highest insight bonus applies.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>AC&lt;/li>
+         *      &lt;li>Attacks&lt;/li>
+         *      &lt;li>Checks&lt;/li>
+         *      &lt;li>Saves&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#insight
+         **/
+        /**
+         * A **luck bonus** represents good (or bad) fortune. Multiple luck bonuses 
+         * on the same character or object do not stack. Only the highest luck 
+         * bonus applies.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>AC&lt;/li>
+         *      &lt;li>Attacks&lt;/li>
+         *      &lt;li>Checks&lt;/li>
+         *      &lt;li>Damage&lt;/li>
+         *      &lt;li>Saves&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#luck
+         **/
+        /**
+         * &lt;p>A **masterwork weapon** is a finely crafted version of a normal weapon. 
+         * Wielding it provides a +1 enhancement bonus on attack rolls. All magic 
+         * weapons are automatically considered to be of masterwork quality. The 
+         * enhancement bonus granted by the masterwork quality doesn't stack with 
+         * the enhancement bonus provided by the weapon's magic.&lt;/p>
+         * 
+         * &lt;p>Just as with weapons, you can purchase or craft **masterwork 
+         * versions of armor or shields.** Such a well-made item functions like the 
+         * normal version, except that its armor check penalty is lessened by 1. 
+         * The masterwork quality of a suit of armor or shield never provides a 
+         * bonus on attack or damage rolls, even if the armor or shield is used 
+         * as a weapon.&lt;/p>
+         * 
+         * &lt;p>A **masterwork tool** is perfect for its intended job. It grants a +2 
+         * circumstance bonus on a related skill check (if any). The bonuses 
+         * provided by multiple masterwork items do not stack.&lt;/p>
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>Attacks&lt;/li>
+         *      &lt;li>Checks&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#masterwork
+         **/
+        /**
+         * A **morale bonus** represents the effects of greater hope, courage, 
+         * and determination (or hopelessness, cowardice, and despair in the 
+         * case of a morale penalty). Multiple morale bonuses on the same 
+         * character do not stack. Only the highest morale bonus applies. 
+         * Non-intelligent creatures (creatures with an Intelligence of 0 or no 
+         * Intelligence at all) cannot benefit from morale bonuses.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>Attacks&lt;/li>
+         *      &lt;li>Checks&lt;/li>
+         *      &lt;li>Damage&lt;/li>
+         *      &lt;li>Saves&lt;/li>
+         *      &lt;li>Str&lt;/li>
+         *      &lt;li>Dex&lt;/li>
+         *      &lt;li>Con&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#morale
+         **/
+        /**
+         * A **natural armor** bonus improves armor class resulting from a 
+         * creature's naturally tough hide. Natural armor bonuses stack with all 
+         * other bonuses to armor class (even with armor bonuses) except other 
+         * natural armor bonuses. Some magical effects (such as the barkskin 
+         * spell) grant an enhancement bonus to the creature's existing natural 
+         * armor bonus, which has the effect of increasing the natural armor's 
+         * overall bonus to armor class. A natural armor bonus doesn't apply 
+         * against touch attacks.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>AC&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#natarmor
+         **/
+        /**
+         * A **profane bonus** (or penalty) stems from the power of evil. 
+         * Multiple profane bonuses on the same character or object do not 
+         * stack. Only the highest profane bonus applies.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>Attacks&lt;/li>
+         *      &lt;li>Checks&lt;/li>
+         *      &lt;li>Damage&lt;/li>
+         *      &lt;li>DCs&lt;/li>
+         *      &lt;li>Saves&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#profane
+         **/
+        /**
+         * Represents **proficiency penalties** for weapons and armor.
+         * 
+         * &lt;p>When using a weapon with which you are not proficient, you take a 
+         * –4 penalty on attack rolls.&lt;/p>
+         * 
+         * &lt;p>A character who is wearing armor with which he is not proficient 
+         * applies its armor check penalty to attack rolls and to all skill 
+         * checks that involve moving.&lt;/p>
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>Attacks&lt;/li>
+         *      &lt;li>Checks&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#proficiency
+         **/
+        /**
+         * A **racial bonus** comes from the culture a particular creature was 
+         * brought up in or because of innate characteristics of that type of 
+         * creature. If a creature's race changes (for instance, if it dies and 
+         * is reincarnated), it loses all racial bonuses it had in its previous 
+         * form.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>--&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#racial
+         **/
+        /**
+         * A **resistance bonus** affects saving throws, providing extra protection 
+         * against harm. Multiple resistance bonuses on the same character or 
+         * object do not stack. Only the highest resistance bonus applies.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>Saves&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#resistance
+         **/
+        /**
+         * A **sacred bonus** (or penalty) stems from the power of good. 
+         * Multiple sacred bonuses on the same character or object do not stack. 
+         * Only the highest sacred bonus applies.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>Attacks&lt;/li>
+         *      &lt;li>Checks&lt;/li>
+         *      &lt;li>Damage&lt;/li>
+         *      &lt;li>DCs&lt;/li>
+         *      &lt;li>Saves&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#sacred
+         **/
+        /**
+         * A **shield bonus** improves armor class and is granted by a shield or 
+         * by a spell or magic effect that mimics a shield. Shield bonuses stack 
+         * with all other bonuses to AC except other shield bonuses. A magic 
+         * shield typically grants an enhancement bonus to the shield's shield 
+         * bonus, which has the effect of increasing the shield's overall bonus 
+         * to AC. A shield bonus granted by a spell or magic item typically 
+         * takes the form of an invisible, tangible field of force that protects 
+         * the recipient. A shield bonus doesn't apply against touch attacks.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>AC&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#shield
+         **/
+        /**
+         * A **size bonus** or penalty is derived from a creature's size 
+         * category. Size modifiers of different kinds apply to armor class, 
+         * attack rolls, Stealth checks, combat maneuver checks, and various 
+         * other checks.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>Ability scores&lt;/li>
+         *      &lt;li>AC&lt;/li>
+         *      &lt;li>Attacks&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#size
+         **/
+        /**
+         * A **trait bonus** is a bonus granted via a character trait. Character 
+         * traits are an optional additional character defining feature like 
+         * feats but less powerful (typically about half as strong as a feat.) 
+         * As with other named bonuses, trait bonuses do not "stack" with other 
+         * trait bonuses.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>--&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#trait
+         **/
+        /**
+         * An **untyped bonus** is rare, but generally stacks with all other 
+         * bonuses except untyped bonuses from the same (or similar) sources.
+         * 
+         * &lt;p>**Can affect:**&lt;/p>
+         * &lt;ul>
+         *      &lt;li>--&lt;/li>
+         * &lt;/ul>
+         * 
+         * @name Bonus#untyped
+         **/
+        var bonus = {
+            "alchemical": 0,
+            "armor": 0,
+            "baseattack": 0,
+            "circumstance": 0,
+            "competence": 0,
+            "deflection": 0,
+            "dodge": 0,
+            "enhancement": 0,
+            "inherent": 0,
+            "insight": 0,
+            "luck": 0,
+            "masterwork": 0,
+            "morale": 0,
+            "natarmor": 0,
+            "profane": 0,
+            "proficiency": 0,
+            "racial": 0,
+            "resistance": 0,
+            "sacred": 0,
+            "shield": 0,
+            "size": 0,
+            "trait": 0,
+            "untyped": 0
+        };
+        
+        for (var type in template) {
+            if (!bonus.hasOwnProperty(type)) {
+                throw new TypeError("Template: Unknown bonus type " + type);
+            }
+        }
+        for (var type in updaters) {
+            if (!bonus.hasOwnProperty(type)) {
+                throw new TypeError("Updaters: Unknown bonus type " + type);
+            }
+        }
+        for (var type in dependencies) {
+            if (!bonus.hasOwnProperty(type)) {
+                throw new TypeError("Dependencies: Unknown bonus type " + type);
+            }
+        }
+        
+        angular.extend(bonus, template);
+        
+        Data.call(this, bonus, updaters, dependencies);
+    }
+    
+    // Inheritance from Data:
+    Bonus.prototype = Object.create(Data.prototype);
+    Bonus.prototype.constructor = Bonus;
+    
+    /**
+     * Calculates the sum of all bonuses and returns as a Number
+     * 
+     * @memberof Bonus
+     * @returns {Number}
+     **/
+    Bonus.prototype.valueOf = function(method) {
+        var total = 0;
+        for (var type in this.___) {
+            if (typeof this.___[type] !== 'function') {
+                total += Number(this.___[type]);
+                
+            }
+        }
+        return total;
+    };
+    
+    /**
+     * Calculates the sum of all bonuses and returns as a String (or "" if zero)
+     * 
+     * @memberof Bonus
+     * @returns {String}
+     **/
+    Bonus.prototype.toString = function(method) {
+        var total = 0;
+        for (var type in this.___) {
+            if (typeof this.___[type] !== 'function') {
+                total += Number(this.___[type]);
+                
+            }
+        }
+        return (total ? total.toString() : "");
+    };
+    
+    /**
+     * Adds two Bonus objects together, taking the sum of stackable bonus types
+     * (like dodge) and the higher of non-stackable bonus types (like armor).
+     * 
+     * @memberof Bonus
+     * @param {Bonus} otherBonus - Bonus object to add to this one
+     * @returns {Bonus}
+     **/
+    Bonus.prototype.add = function(otherBonus) {
+        if (typeof otherBonus === 'undefined') {
+            throw new TypeError("otherBonus parameter required");
+        }
+        if (!(typeof otherBonus == "object" &amp;&amp; otherBonus.constructor.name == "Bonus")) {
+            throw new TypeError("Cannot add Bonus and non-Bonus");
+        }
+        var newBonus = new Bonus()
+        for (var type in this) {
+            if (typeof this[type] !== 'function') {
+                switch(type) {
+                    case "circumstance":
+                    case "dodge":
+                    case "racial":
+                    case "untyped":
+                        newBonus[type] = Number(this[type]) + Number(otherBonus[type]);
+                        break;
+                    default:
+                        newBonus[type] = Math.max(Number(this[type]), Number(otherBonus[type]));
+                        break;
+                }
+            }
+        }
+        return newBonus;
+    };
+    
+    // And deliver the class:
+    return Bonus;
+});
+
+csheetApp.factory("ObservantArray", function() {
+    function ObservantArray() {
+        var arr = [ ];
+        arr.push.apply(arr, arguments);
+        arr.push = function() {
+            for (var i=0; i&lt;arguments.length; i++) {
+                if (typeof arguments[i] == "object") {
+                    Object.observe( arguments[i], (function(notifier) {
+                        return function(e) {
+                            for (var i = 0; i &lt; e.length; i++) {
+                                notifier.notify({
+                                    type: "update",
+                                    name: "arrayItem"
+                                });
+                            }
+                        }
+                    })(Object.getNotifier(this)));
+                }
+            }
+            Array.prototype.push.apply(this, arguments);
+        }
+        return arr;
+    }
+    
+    return ObservantArray;
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Bonus.html">Bonus</a></li><li><a href="Data.html">Data</a></li><li><a href="Field.html">Field</a></li><li><a href="Weapon.html">Weapon</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Fri Sep 18 2015 22:50:46 GMT+0000 (UTC)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
